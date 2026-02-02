@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Adam | CivicShift</title>
+    <meta name="description" content="Check availability for contract, interim, or fixed-term digital transformation roles.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="glass-panel site-nav">
+        <a href="index.html" class="nav-logo">
+            Civic <span class="text-teal">Shift >></span>
+        </a>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
+            <span class="mobile-hamburger"></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="hover:text-teal">Home</a>
+            <a href="services.html" class="hover:text-teal">Services</a>
+            <a href="success_stories.html" class="hover:text-teal">Success Stories</a>
+            <a href="estimator.html" class="hover:text-teal">Rates</a>
+            <a href="contact.html" class="btn btn-primary">Contact Me</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-dark about-hero">
+        <div class="container animate-fade-up">
+            <h1>Ready to deliver?</h1>
+            <p class="text-green hero-subtitle">
+                Bring the problem. I'll bring clarity, momentum, and results.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contact & Availability -->
+    <section class="contact-content-section">
+        <div class="container contact-grid">
+            
+            <!-- Availability -->
+            <div>
+                <h2>Contract Availability</h2>
+                
+                <div class="glass-panel availability-panel">
+                    <ul class="availability-list">
+                        <li>
+                            <span class="text-teal">✔</span> Contract, interim or fixed-term
+                        </li>
+                        <li>
+                            <span class="text-teal">✔</span> Day-rate or statement of work
+                        </li>
+                        <li>
+                            <span class="text-teal">✔</span> Short, medium or longer engagements
+                        </li>
+                        <li>
+                            <span class="text-teal">✔</span> On-site, hybrid or remote
+                        </li>
+                        <li>
+                            <span class="text-teal">✔</span> Immediate or planned starts
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Email</h3>
+                    <p>adam@civicshift.gov.uk</p>
+                    
+                    <h3>LinkedIn</h3>
+                     <a href="#">Connect with me</a>
+                </div>
+
+            </div>
+
+            <!-- Form -->
+            <div class="glass-panel contact-form-panel">
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+                    <!-- Hidden fields for Netlify Forms -->
+                    <input type="hidden" name="form-name" value="contact">
+                    <p class="hidden-field">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+                    
+                    <div>
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div>
+                        <label for="organization">Organization *</label>
+                        <input type="text" id="organization" name="organization" placeholder="Council, agency, or company name" required>
+                    </div>
+
+                    <div>
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div>
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="For urgent enquiries">
+                    </div>
+
+                    <div>
+                        <label for="service">Service Area *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="interim-leadership">Interim Leadership</option>
+                            <option value="programme-management">Programme Management</option>
+                            <option value="project-management">Project Management</option>
+                            <option value="crm-delivery">CRM & Customer Experience</option>
+                            <option value="transformation">Transformation Strategy</option>
+                            <option value="programme-recovery">Programme Recovery</option>
+                            <option value="service-redesign">Service Redesign</option>
+                            <option value="infrastructure">Infrastructure Planning</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="engagement">Engagement Type *</label>
+                        <select id="engagement" name="engagement" required>
+                            <option value="">Select type...</option>
+                            <option value="contract">Contract (day rate)</option>
+                            <option value="interim">Interim role</option>
+                            <option value="fixed-term">Fixed-term</option>
+                            <option value="sow">Statement of Work</option>
+                            <option value="consulting">Consulting / Advisory</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="timeframe">Start Timeframe *</label>
+                        <select id="timeframe" name="timeframe" required>
+                            <option value="">When do you need to start?</option>
+                            <option value="immediate">Immediate (within 2 weeks)</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="1-3-months">1-3 months</option>
+                            <option value="3-6-months">3-6 months</option>
+                            <option value="flexible">Flexible / TBC</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="budget">Budget Range (optional)</label>
+                        <select id="budget" name="budget">
+                            <option value="">Prefer not to say</option>
+                            <option value="under-650">Under £650/day</option>
+                            <option value="650-750">£650-750/day</option>
+                            <option value="750-850">£750-850/day</option>
+                            <option value="850-1000">£850-1000/day</option>
+                            <option value="over-1000">Over £1000/day</option>
+                            <option value="fixed-price">Fixed price project</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message">What's the challenge? *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Briefly describe the programme, role, or challenge you're facing..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Enquiry</button>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift >></span></a>
+                    <p>Contract interim leadership and delivery for complex public service digital transformation. I unblock teams and get things over the line.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="estimator.html">Rate Card</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact/Action -->
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p class="footer-cta-text">Need to stabilise a programme fast?</p>
+                    <a href="contact.html" class="btn btn-primary">Check Availability</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 CivicShift. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

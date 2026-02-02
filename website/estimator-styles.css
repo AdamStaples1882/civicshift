@@ -1,0 +1,558 @@
+/* Modern Netlify-Style Estimator Enhancements */
+
+/* Estimator Section Layout */
+.estimator-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.estimator-container {
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+.estimator-intro {
+    text-align: center; 
+    margin-bottom: 3rem;
+}
+
+.estimator-intro h2 {
+    font-size: 2.25rem; 
+    margin-bottom: 0.75rem; 
+    color: var(--text-primary);
+}
+
+.estimator-intro p {
+    color: var(--text-body); 
+    font-size: 1.05rem; 
+    max-width: 560px; 
+    margin: 0 auto;
+}
+
+.estimator-card {
+    background: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05); 
+    padding: 3rem; 
+    border: 1px solid #e5e7eb;
+}
+
+.input-label {
+    display: block; 
+    font-size: 0.875rem; 
+    font-weight: 600; 
+    color: var(--text-primary); 
+    margin-bottom: 1.25rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+}
+
+.input-label-sm {
+    margin-bottom: 0.75rem;
+}
+
+.service-grid {
+    display: grid; 
+    gap: 0.75rem;
+}
+
+/* Service Option Styling */
+.service-option {
+    position: relative; 
+    display: flex; 
+    align-items: flex-start; 
+    padding: 1.25rem 1.5rem; 
+    background: #f9fafb; 
+    border: 2px solid #e5e7eb; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: all 0.15s ease;
+}
+
+/* Service Option Hover States */
+.service-option:hover {
+    background: #ffffff !important;
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+    transform: translateY(-1px);
+}
+
+.service-option:has(input:checked) {
+    background: #ffffff !important;
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.service-option:has(input:checked)::after {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.service-radio {
+    margin-top: 0.25rem; 
+    margin-right: 1rem; 
+    width: 18px; 
+    height: 18px; 
+    cursor: pointer; 
+    flex-shrink: 0; 
+    accent-color: var(--accent-green);
+}
+
+.service-content-wrapper {
+    flex: 1;
+}
+
+.service-header {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    margin-bottom: 0.25rem;
+}
+
+.service-title {
+    font-size: 1rem; 
+    color: var(--text-primary); 
+    font-weight: 600;
+}
+
+.service-price {
+    font-size: 0.875rem; 
+    color: var(--text-muted); 
+    font-weight: 500;
+}
+
+.service-description {
+    color: var(--text-body); 
+    font-size: 0.875rem; 
+    margin: 0; 
+    line-height: 1.5;
+}
+
+/* Input Fields */
+.duration-wrapper {
+    position: relative;
+}
+
+.duration-input {
+    width: 100%; 
+    padding: 0.875rem 3.5rem 0.875rem 1rem; 
+    border: 2px solid #e5e7eb; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    color: var(--text-primary); 
+    background: #ffffff; 
+    transition: all 0.15s ease; 
+    font-weight: 500;
+}
+
+.duration-input:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+}
+
+.duration-suffix {
+    position: absolute; 
+    right: 1rem; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: var(--text-muted); 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    pointer-events: none;
+}
+
+.duration-hint {
+    margin-top: 0.5rem; 
+    font-size: 0.8125rem; 
+    color: var(--text-muted);
+}
+
+/* Calculate Button */
+.calculate-btn {
+    width: 100%; 
+    padding: 1rem; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    box-shadow: 0 1px 3px rgba(16,185,129,0.12), 0 4px 8px rgba(16,185,129,0.08);
+}
+
+.calculate-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16,185,129,0.2);
+}
+
+/* Button Animations */
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 1px 3px rgba(16,185,129,0.12), 0 4px 8px rgba(16,185,129,0.08); }
+    50% { box-shadow: 0 4px 12px rgba(16,185,129,0.2), 0 8px 16px rgba(16,185,129,0.12); }
+}
+
+.btn-primary:focus {
+    animation: pulse 2s infinite;
+}
+
+/* Result Area */
+.result-area {
+    margin-top: 2.5rem; 
+    padding: 2.5rem; 
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-main) 100%); 
+    border-radius: 12px; 
+    text-align: center; 
+    display: none; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* Result Card Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#resultArea.show {
+    animation: slideUp 0.4s ease-out;
+}
+
+.result-label {
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    margin-bottom: 1rem; 
+    color: rgba(255,255,255,0.7);
+}
+
+.result-value {
+    font-size: 3rem; 
+    font-weight: 800; 
+    color: var(--accent-green); 
+    margin: 0.5rem 0; 
+    letter-spacing: -0.02em; 
+    line-height: 1;
+}
+
+.result-note {
+    font-size: 0.9375rem; 
+    color: rgba(255,255,255,0.8); 
+    margin-top: 1rem; 
+    font-weight: 500;
+}
+
+.result-actions {
+    margin-top: 2rem; 
+    padding-top: 2rem; 
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-glass {
+    background: rgba(255,255,255,0.1); 
+    color: #ffffff; 
+    border: 2px solid rgba(255,255,255,0.3); 
+    padding: 0.75rem 2rem; 
+    display: inline-block; 
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.btn-glass:hover {
+    background: rgba(255,255,255,0.2); 
+    border-color: #ffffff;
+}
+
+.estimator-disclaimer {
+    text-align: center; 
+    margin-top: 2rem; 
+    font-size: 0.875rem; 
+    color: var(--text-muted);
+}
+
+/* Rate Cards Section */
+.rate-cards-section {
+    padding: var(--section-padding);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.rate-cards-title {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.rate-cards-intro {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 1.125rem;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card Container */
+.values-grid {
+    gap: 2.5rem;
+}
+
+/* Individual Rate Cards */
+.rate-card, .rate-card-premium {
+    padding: 2.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.rate-card:hover, .rate-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Title */
+.rate-card h3, .rate-card-premium h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.75rem !important;
+    color: var(--primary-dark) !important;
+}
+
+/* Subtitle - BOLD */
+.rate-card .rate-card-subtitle, .rate-card-premium .rate-card-subtitle {
+    color: var(--text-body) !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Price Container with separator line */
+.rate-card .rate-card-price-container, .rate-card-premium .rate-card-price-container {
+    margin-bottom: 2rem !important;
+    padding-bottom: 2rem !important;
+    border-bottom: 2px solid #e5e7eb !important;
+}
+
+/* Price Value - BOLD and larger */
+.rate-card .rate-card-price-value, .rate-card-premium .rate-card-price-value {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: var(--accent-teal) !important;
+}
+
+.rate-card .rate-card-unit, .rate-card-premium .rate-card-unit {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: var(--text-dim) !important;
+}
+
+/* Bulletted List */
+.rate-card .rate-card-list, .rate-card-premium .rate-card-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.rate-card .rate-card-list li, .rate-card-premium .rate-card-list li {
+    margin-bottom: 1rem !important;
+    padding-left: 2rem !important;
+    position: relative !important;
+    line-height: 1.6 !important;
+}
+
+.rate-card .rate-card-list li::before, .rate-card-premium .rate-card-list li::before {
+    content: "✓" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--accent-teal) !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+}
+
+/* Premium Card */
+.rate-card-premium {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%) !important;
+    border-top: 4px solid #ef4444 !important;
+}
+
+.rate-card-premium h3 {
+    color: #991b1b !important;
+}
+
+.rate-card-premium .rate-card-subtitle {
+    color: #991b1b !important;
+}
+
+.rate-card-premium .rate-card-price-value {
+    color: #dc2626 !important;
+}
+
+.rate-card-premium .rate-card-list li::before {
+    color: #dc2626 !important;
+}
+
+/* Border Colors */
+.border-top-teal {
+    border-top: 4px solid var(--accent-teal);
+}
+
+.border-top-gold {
+    border-top: 4px solid var(--accent-gold);
+}
+
+.border-top-navy {
+    border-top: 4px solid var(--primary-main);
+}
+
+/* Expense Cards */
+.expense-card {
+    padding: 2.5rem; 
+    background: #f8fafc; 
+    border-top: 4px solid var(--primary-main);
+}
+
+.discount-card {
+    padding: 2.5rem; 
+    background: var(--bg-green-subtle); 
+    border-top: 4px solid var(--accent-green);
+}
+
+.flex-center-gap {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+}
+
+.rate-disclaimer {
+    text-align: center; 
+    margin-top: 3rem; 
+    color: var(--text-dim);
+}
+
+/* Form Layout */
+.form-group {
+    margin-bottom: 2.5rem;
+}
+
+/* Expense Cards Typography */
+.expense-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.expense-desc {
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.mb-1rem {
+    margin-bottom: 1rem;
+}
+
+.discount-highlight {
+    color: var(--accent-green);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+/ *   E n h a n c e d   s t y l i n g   f o r   T r a v e l   &   E x p e n s e s   a n d   H y b r i d   W o r k i n g   D i s c o u n t   c a r d s   * /  
+  
+ . e x p e n s e - c a r d ,   . d i s c o u n t - c a r d   {  
+         p a d d i n g :   2 . 5 r e m   ! i m p o r t a n t ;  
+         b o r d e r - r a d i u s :   1 2 p x   ! i m p o r t a n t ;  
+         t r a n s i t i o n :   a l l   0 . 3 s   e a s e   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d : h o v e r ,   . d i s c o u n t - c a r d : h o v e r   {  
+         t r a n s f o r m :   t r a n s l a t e Y ( - 8 p x )   ! i m p o r t a n t ;  
+         b o x - s h a d o w :   0   2 0 p x   4 0 p x   r g b a ( 0 ,   0 ,   0 ,   0 . 1 2 )   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   h 3 ,   . d i s c o u n t - c a r d   h 3   {  
+         f o n t - s i z e :   1 . 5 r e m   ! i m p o r t a n t ;  
+         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
+         m a r g i n - b o t t o m :   1 . 5 r e m   ! i m p o r t a n t ;  
+         c o l o r :   v a r ( - - p r i m a r y - d a r k )   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   . e x p e n s e - d e s c ,   . d i s c o u n t - c a r d   . e x p e n s e - d e s c   {  
+         f o n t - s i z e :   1 r e m   ! i m p o r t a n t ;  
+         l i n e - h e i g h t :   1 . 7 5   ! i m p o r t a n t ;  
+         c o l o r :   v a r ( - - t e x t - b o d y )   ! i m p o r t a n t ;  
+         f o n t - w e i g h t :   5 0 0   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   . e x p e n s e - d e s c   s t r o n g ,   . d i s c o u n t - c a r d   . e x p e n s e - d e s c   s t r o n g   {  
+         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
+         c o l o r :   v a r ( - - p r i m a r y - d a r k )   ! i m p o r t a n t ;  
+ }  
+  
+ . d i s c o u n t - c a r d   . d i s c o u n t - h i g h l i g h t   {  
+         f o n t - s i z e :   1 . 2 5 r e m   ! i m p o r t a n t ;  
+         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
+         c o l o r :   v a r ( - - a c c e n t - g r e e n )   ! i m p o r t a n t ;  
+         m a r g i n - t o p :   1 . 5 r e m   ! i m p o r t a n t ;  
+         p a d d i n g - t o p :   1 . 5 r e m   ! i m p o r t a n t ;  
+         b o r d e r - t o p :   2 p x   s o l i d   r g b a ( 1 6 ,   1 8 5 ,   1 2 9 ,   0 . 2 )   ! i m p o r t a n t ;  
+ }  
+ / *   A p p l y   r a t e   c a r d   l i s t   s t y l i n g   t o   e x p e n s e   a n d   d i s c o u n t   c a r d s   * /  
+ . e x p e n s e - c a r d   . r a t e - c a r d - s u b t i t l e ,  
+ . d i s c o u n t - c a r d   . r a t e - c a r d - s u b t i t l e   {  
+         c o l o r :   v a r ( - - t e x t - b o d y )   ! i m p o r t a n t ;  
+         f o n t - s i z e :   1 . 0 5 r e m   ! i m p o r t a n t ;  
+         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
+         m a r g i n - b o t t o m :   1 . 5 r e m   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   . r a t e - c a r d - l i s t ,  
+ . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   {  
+         l i s t - s t y l e :   n o n e   ! i m p o r t a n t ;  
+         p a d d i n g - l e f t :   0   ! i m p o r t a n t ;  
+         m a r g i n :   0   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   . r a t e - c a r d - l i s t   l i ,  
+ . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i   {  
+         m a r g i n - b o t t o m :   1 r e m   ! i m p o r t a n t ;  
+         p a d d i n g - l e f t :   2 r e m   ! i m p o r t a n t ;  
+         p o s i t i o n :   r e l a t i v e   ! i m p o r t a n t ;  
+         l i n e - h e i g h t :   1 . 6   ! i m p o r t a n t ;  
+ }  
+  
+ . e x p e n s e - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e ,  
+ . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e   {  
+         c o n t e n t :   " � S "   ! i m p o r t a n t ;  
+         p o s i t i o n :   a b s o l u t e   ! i m p o r t a n t ;  
+         l e f t :   0   ! i m p o r t a n t ;  
+         t o p :   0   ! i m p o r t a n t ;  
+         c o l o r :   v a r ( - - a c c e n t - t e a l )   ! i m p o r t a n t ;  
+         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
+         f o n t - s i z e :   1 . 2 5 r e m   ! i m p o r t a n t ;  
+ }  
+  
+ / *   G r e e n   c h e c k m a r k s   f o r   d i s c o u n t   c a r d   * /  
+ . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e   {  
+         c o l o r :   v a r ( - - a c c e n t - g r e e n )   ! i m p o r t a n t ;  
+ }  
+ 
+/* Light green background for discount card */
+.discount-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.05) 100%) !important;
+    border-top: 3px solid var(--accent-green) !important;
+}
+
