@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Service Agents for UK Councils | Civic Shift Ai Team</title>
+    <meta
+      name="description"
+      content="AI Service Agents for UK councils. Built for real-world demand. Reduce avoidable contact, improve response times, and release officer capacity."
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gov-black: #0b0c0c;
+        --gov-white: #ffffff;
+        --gov-blue: #1d70b8;
+        --gov-blue-hover: #003078;
+        --gov-green: #00703c;
+        --gov-green-hover: #005a30;
+        --gov-grey: #f3f2f1;
+        --gov-dark-grey: #505a5f;
+        --gov-border: #b1b4b6;
+        --gov-focus: #ffdd00;
+        --font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+        --spacing-1: 5px;
+        --spacing-2: 10px;
+        --spacing-3: 15px;
+        --spacing-4: 20px;
+        --spacing-6: 30px;
+        --spacing-8: 40px;
+        --spacing-12: 60px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-family);
+        color: var(--gov-black);
+        background-color: var(--gov-white);
+        line-height: 1.6;
+        font-size: 19px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      @media (min-width: 40.0625em) {
+        body {
+          font-size: 20px;
+        }
+      }
+
+      a {
+        color: var(--gov-blue);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+      }
+      a:hover {
+        color: var(--gov-blue-hover);
+      }
+
+      *:focus {
+        outline: 3px solid var(--gov-focus);
+        outline-offset: 0;
+        background-color: var(--gov-focus);
+        color: var(--gov-black);
+        box-shadow:
+          0 -2px var(--gov-focus),
+          0 4px var(--gov-black);
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: var(--spacing-4);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-6);
+      }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-6);
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      @media (min-width: 40.0625em) {
+        h1 {
+          font-size: 3rem;
+        }
+        h2 {
+          font-size: 2.25rem;
+        }
+      }
+
+      p {
+        margin-bottom: var(--spacing-4);
+      }
+      ul {
+        margin-bottom: var(--spacing-4);
+      }
+
+      .container {
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-3);
+      }
+      @media (min-width: 40.0625em) {
+        .container {
+          padding: 0 var(--spacing-6);
+        }
+      }
+
+      .section {
+        padding: var(--spacing-8) 0;
+      }
+      @media (min-width: 40.0625em) {
+        .section {
+          padding: var(--spacing-12) 0;
+        }
+      }
+
+      .section-alt {
+        background-color: var(--gov-grey);
+        border-top: 1px solid var(--gov-border);
+        border-bottom: 1px solid var(--gov-border);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .max-w-prose {
+        max-width: 65ch;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        display: inline-block;
+        font-size: 1.125rem;
+        font-weight: 600;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-bottom: var(--spacing-3);
+        margin-right: var(--spacing-3);
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: var(--gov-green);
+        color: var(--gov-white);
+        box-shadow: 0 4px 0 #002d18;
+      }
+      .btn-primary:hover {
+        background-color: var(--gov-green-hover);
+        color: var(--gov-white);
+      }
+      .btn-primary:active {
+        box-shadow: none;
+        transform: translateY(4px);
+      }
+
+      .btn-secondary {
+        background-color: var(--gov-white);
+        color: var(--gov-black);
+        border-color: var(--gov-black);
+        box-shadow: 0 4px 0 var(--gov-black);
+      }
+      .btn-secondary:hover {
+        background-color: var(--gov-grey);
+      }
+      .btn-secondary:active {
+        box-shadow: none;
+        transform: translateY(4px);
+      }
+
+      .header {
+        padding: var(--spacing-4) 0;
+        border-bottom: 5px solid var(--gov-blue);
+      }
+      .header .brand {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--gov-black);
+        text-decoration: none;
+      }
+
+      .hero {
+        padding-top: var(--spacing-12);
+        padding-bottom: var(--spacing-8);
+      }
+      .hero-lead {
+        font-size: 1.5rem;
+        color: var(--gov-dark-grey);
+        margin-bottom: var(--spacing-6);
+        max-width: 40ch;
+        line-height: 1.4;
+      }
+      .hero-credibility {
+        margin-top: var(--spacing-6);
+        padding-top: var(--spacing-4);
+        border-top: 2px solid var(--gov-blue);
+        font-weight: 600;
+        font-size: 1.125rem;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+      }
+      @media (min-width: 48em) {
+        .grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+      }
+      @media (min-width: 48em) {
+        .grid-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .card {
+        background: var(--gov-white);
+        padding: var(--spacing-6);
+        border: 1px solid var(--gov-border);
+        border-bottom: 4px solid var(--gov-blue);
+      }
+      .card-alt {
+        border-bottom-color: var(--gov-green);
+      }
+
+      .card h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-3);
+      }
+      .card ul {
+        padding-left: var(--spacing-4);
+      }
+
+      .bullets {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-6);
+      }
+      .bullets li {
+        margin-bottom: var(--spacing-3);
+        list-style-type: square;
+        margin-left: var(--spacing-6);
+        padding-left: var(--spacing-2);
+      }
+
+      .disclaimer {
+        background-color: #fce2e1;
+        padding: var(--spacing-4);
+        border-left: 5px solid #d4351c;
+        font-weight: 600;
+        font-size: 1.125rem;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        margin-bottom: var(--spacing-6);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        min-width: 700px;
+      }
+      th,
+      td {
+        padding: var(--spacing-3);
+        border-bottom: 1px solid var(--gov-border);
+        vertical-align: top;
+      }
+      th {
+        font-weight: 700;
+        background-color: var(--gov-grey);
+        border-bottom: 2px solid var(--gov-black);
+      }
+
+      .calc-wrapper {
+        background: var(--gov-white);
+        border: 3px solid var(--gov-blue);
+        padding: var(--spacing-6);
+      }
+      .form-group {
+        margin-bottom: var(--spacing-4);
+      }
+      .form-label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: var(--spacing-2);
+      }
+      .form-input {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.125rem;
+        font-family: inherit;
+        border: 2px solid var(--gov-black);
+        max-width: 100%;
+      }
+      .form-input[type="range"] {
+        padding: 0;
+        border: none;
+        accent-color: var(--gov-blue);
+      }
+
+      .slider-val {
+        display: inline-block;
+        font-weight: 700;
+        background: var(--gov-white);
+        padding: 4px 8px;
+        margin-left: var(--spacing-2);
+        border: 2px solid var(--gov-black);
+      }
+
+      .output-panel {
+        background: var(--gov-grey);
+        padding: var(--spacing-4);
+        margin-top: var(--spacing-6);
+        border-left: 5px solid var(--gov-green);
+      }
+      .output-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-2) 0;
+        border-bottom: 1px solid var(--gov-border);
+      }
+      .output-row:last-child {
+        border-bottom: none;
+      }
+      .output-label {
+        font-weight: 600;
+      }
+      .output-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .output-value.highlight {
+        color: var(--gov-green);
+        font-size: 1.75rem;
+      }
+
+      .scenario-btns {
+        display: flex;
+        gap: var(--spacing-2);
+        margin-top: var(--spacing-2);
+        flex-wrap: wrap;
+      }
+      .btn-scenario {
+        background: var(--gov-white);
+        border: 2px solid var(--gov-blue);
+        padding: 8px 16px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--gov-blue);
+      }
+      .btn-scenario:hover,
+      .btn-scenario.active {
+        background: var(--gov-blue);
+        color: var(--gov-white);
+      }
+
+      .chart-bar-container {
+        margin-top: var(--spacing-6);
+        background: var(--gov-white);
+        border: 1px solid var(--gov-border);
+        padding: var(--spacing-4);
+      }
+      .chart-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-3);
+      }
+      .chart-label {
+        width: 90px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .chart-track {
+        flex-grow: 1;
+        background: var(--gov-grey);
+        height: 32px;
+        position: relative;
+      }
+      .chart-fill {
+        height: 100%;
+        background: var(--gov-green);
+        transition: width 0.3s ease;
+        display: flex;
+        align-items: center;
+        padding-left: var(--spacing-2);
+        color: var(--gov-white);
+        font-weight: 700;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: visible;
+        min-width: fit-content;
+      }
+      .chart-fill.low {
+        background: #505a5f;
+      }
+      .chart-fill.mid {
+        background: var(--gov-blue);
+      }
+
+      .footnote {
+        font-size: 1rem;
+        color: var(--gov-dark-grey);
+        margin-top: var(--spacing-4);
+      }
+
+      .timeline {
+        border-left: 4px solid var(--gov-blue);
+        padding-left: var(--spacing-4);
+        margin: var(--spacing-6) 0;
+        margin-left: 14px;
+      }
+      .timeline-step {
+        margin-bottom: var(--spacing-6);
+        position: relative;
+      }
+      .timeline-step::before {
+        content: "";
+        position: absolute;
+        left: -42px;
+        top: 6px;
+        width: 20px;
+        height: 20px;
+        background: var(--gov-white);
+        border: 4px solid var(--gov-blue);
+        border-radius: 50%;
+      }
+
+      .outcome-stat {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gov-green);
+        display: block;
+        margin-bottom: var(--spacing-2);
+        line-height: 1.1;
+      }
+
+      .faq-item {
+        border-top: 1px solid var(--gov-border);
+        padding: var(--spacing-4) 0;
+      }
+      .faq-item:last-child {
+        border-bottom: 1px solid var(--gov-border);
+      }
+      .faq-q {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-2);
+        color: var(--gov-black);
+      }
+
+      .form-panel {
+        background: var(--gov-white);
+        padding: var(--spacing-6);
+        border: 4px solid var(--gov-blue);
+      }
+      textarea.form-input {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--gov-grey);
+        padding: var(--spacing-4);
+        border-top: 2px solid var(--gov-border);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4);
+        transition: transform 0.3s ease-out;
+      }
+      .cookie-banner.hidden {
+        transform: translateY(100%);
+      }
+      @media (min-width: 48em) {
+        .cookie-banner {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      .footer {
+        background-color: var(--gov-black);
+        color: var(--gov-white);
+        padding: var(--spacing-8) 0;
+        font-size: 1rem;
+      }
+      .footer a {
+        color: var(--gov-white);
+        text-decoration-color: var(--gov-white);
+      }
+      .footer a:hover {
+        color: var(--gov-border);
+        text-decoration-color: var(--gov-border);
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="#" class="brand">Civic Shift Ai Team</a>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- 1) HERO SECTION -->
+      <section class="section hero">
+        <div class="container">
+          <h1>
+            AI Service Agents for UK councils. Built for real-world demand.
+          </h1>
+          <p class="hero-lead">
+            Reduce avoidable contact, improve response times, and release
+            officer capacity — without compromising governance.
+          </p>
+          <div>
+            <a href="#contact" class="btn btn-primary"
+              >Book a 30-minute discovery call</a
+            >
+            <a href="#roi-calculator" class="btn btn-secondary"
+              >Use the ROI calculator</a
+            >
+          </div>
+          <div class="hero-credibility">
+            Designed for high-volume services: Waste, Council Tax, Benefits,
+            Planning, Housing triage.
+          </div>
+        </div>
+      </section>
+
+      <!-- 2) PROBLEM SECTION -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>The reality: demand keeps rising, budgets don’t.</h2>
+          <div class="grid-3">
+            <div class="card">
+              <h3>High avoidable contact</h3>
+              <p>
+                Citizens continuously ask for repetitive policy lookups, basic
+                signposting, or chase status updates that are already published
+                online.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Officers doing admin</h3>
+              <p>
+                Front-line staff spend their capacity copying and pasting
+                emails, triaging generic queries, or checking incorrectly filled
+                forms.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Peak demand spikes</h3>
+              <p>
+                Service changes, bad weather events, or annual billing cycles
+                overwhelm call centres and backlogs build up instantly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3) SOLUTION SECTION -->
+      <section class="section">
+        <div class="container">
+          <h2>Meet your AI Service Agent</h2>
+          <p>
+            The Civic Shift Ai Team offers a reliable, policy-driven digital
+            worker that operates 24/7 on your website.
+          </p>
+          <ul class="bullets">
+            <li>
+              Answers common queries out-of-hours using your approved, public
+              knowledge base.
+            </li>
+            <li>
+              Routes residents to the exact right form or team, handling initial
+              triage with strict escalation rules.
+            </li>
+            <li>
+              Creates structured CRM cases where appropriate to reduce manual
+              data entry (optional integration).
+            </li>
+            <li>
+              Provides monthly insights: top contact topics, failure points, and
+              your overall deflection rate.
+            </li>
+          </ul>
+          <div class="disclaimer">
+            Important: Not linked to back-office systems unless integrated. No
+            postcode or reference lookups by default.
+          </div>
+        </div>
+      </section>
+
+      <!-- 4) WHAT WE AUTOMATE -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>What we automate by service area</h2>
+          <p>
+            The agent is trained to act as a first line of resolution across
+            local authority operations.
+          </p>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Service area</th>
+                  <th>Typical enquiries</th>
+                  <th>What the agent handles</th>
+                  <th>When it escalates</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Waste &amp; Recycling</td>
+                  <td>Missed bins, collection days, fly-tipping</td>
+                  <td>
+                    Advises on bin days, explains what goes in what bin, links
+                    to reporting forms
+                  </td>
+                  <td>
+                    Complex fly-tipping with hazardous waste, repeat misses
+                  </td>
+                </tr>
+                <tr>
+                  <td>Council Tax</td>
+                  <td>Direct debit setup, moving house, banding</td>
+                  <td>
+                    Explains how to pay, links to change of address forms and
+                    banding lookups
+                  </td>
+                  <td>Arrears, active enforcement action, complex disputes</td>
+                </tr>
+                <tr>
+                  <td>Housing triage</td>
+                  <td>Homelessness standard advice, repairs eligibility</td>
+                  <td>
+                    Signposts to repairs forms, provides basic homelessness and
+                    tenancy guidance
+                  </td>
+                  <td>
+                    Emergency homelessness, safeguarding risks, vulnerable
+                    adults
+                  </td>
+                </tr>
+                <tr>
+                  <td>Planning</td>
+                  <td>Permitted development, app status, objections</td>
+                  <td>
+                    Information on rules, how to submit comments, how to check
+                    app status online
+                  </td>
+                  <td>
+                    Deep technical planning advice, contentious applications
+                  </td>
+                </tr>
+                <tr>
+                  <td>Environmental Health</td>
+                  <td>Noise, pests, food safety</td>
+                  <td>
+                    Clarifies what the council covers vs private responsibility,
+                    how to report
+                  </td>
+                  <td>Urgent hazards, ongoing complex neighbour disputes</td>
+                </tr>
+                <tr>
+                  <td>Customer Services</td>
+                  <td>General triage, opening hours, general switchboard</td>
+                  <td>
+                    Signposting, answering routine resident FAQs, navigating the
+                    website
+                  </td>
+                  <td>Vulnerable residents, complex multi-service queries</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5) ROI CALCULATOR -->
+      <section id="roi-calculator" class="section">
+        <div class="container">
+          <h2>ROI calculator: what could this save your council?</h2>
+          <p>
+            See the business case instantly. Adjust the inputs below to reflect
+            your local authority volumes.
+          </p>
+
+          <div class="grid-2">
+            <!-- Calculator Inputs -->
+            <div class="calc-wrapper">
+              <div class="calc-header">
+                <h3 class="visually-hidden">Calculator Inputs</h3>
+                <div class="form-group">
+                  <label class="form-label" for="calc-contacts"
+                    >Annual contacts (calls, emails, web)</label
+                  >
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="calc-contacts"
+                    value="60000"
+                    min="0"
+                    step="1000"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calc-cost"
+                    >Average cost per contact (£)</label
+                  >
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="calc-cost"
+                    value="3.80"
+                    min="0"
+                    step="0.10"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calc-deflect"
+                    >Expected containment &amp; deflection</label
+                  >
+                  <div style="display: flex; align-items: center; gap: 10px">
+                    <input
+                      class="form-input"
+                      type="range"
+                      id="calc-deflect"
+                      value="40"
+                      min="10"
+                      max="70"
+                      step="1"
+                      style="flex-grow: 1"
+                    />
+                    <span class="slider-val" id="deflect-val" aria-live="polite"
+                      >40%</span
+                    >
+                  </div>
+                  <div class="scenario-btns">
+                    <button type="button" class="btn-scenario" data-val="25">
+                      Low (25%)
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-scenario active"
+                      data-val="40"
+                    >
+                      Medium (40%)
+                    </button>
+                    <button type="button" class="btn-scenario" data-val="55">
+                      High (55%)
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calc-agent-cost"
+                    >Annual AI agent software &amp; operation cost (£)</label
+                  >
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="calc-agent-cost"
+                    value="50000"
+                    min="0"
+                    step="1000"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calc-setup-cost"
+                    >Year 1 setup &amp; integration cost (£)</label
+                  >
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="calc-setup-cost"
+                    value="20000"
+                    min="0"
+                    step="1000"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculator Outputs -->
+            <div>
+              <div class="output-panel" aria-live="polite">
+                <div class="output-row">
+                  <div class="output-label">Annual Gross Savings</div>
+                  <div class="output-value" id="out-gross">£91,200</div>
+                </div>
+                <div class="output-row">
+                  <div class="output-label">Net Year 1 Benefit</div>
+                  <div class="output-value highlight" id="out-net-y1">
+                    £21,200
+                  </div>
+                </div>
+                <div class="output-row">
+                  <div class="output-label">Net Year 2+ Benefit</div>
+                  <div class="output-value" id="out-net-y2">£41,200</div>
+                </div>
+                <div class="output-row">
+                  <div class="output-label">Payback Period</div>
+                  <div class="output-value" id="out-payback">9.2 months</div>
+                </div>
+              </div>
+
+              <!-- 3-Year Comparison Chart -->
+              <div class="chart-bar-container" aria-hidden="true">
+                <h4 style="font-size: 1.1rem; margin-bottom: 15px">
+                  3-Year Cumulative Net Benefit
+                </h4>
+                <div class="chart-row">
+                  <div class="chart-label">Low (25%)</div>
+                  <div class="chart-track">
+                    <div
+                      class="chart-fill low"
+                      id="chart-low"
+                      style="width: 20%"
+                    >
+                      ...
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-row">
+                  <div class="chart-label">Med (40%)</div>
+                  <div class="chart-track">
+                    <div
+                      class="chart-fill mid"
+                      id="chart-mid"
+                      style="width: 50%"
+                    >
+                      ...
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-row">
+                  <div class="chart-label">High (55%)</div>
+                  <div class="chart-track">
+                    <div class="chart-fill" id="chart-high" style="width: 80%">
+                      ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6) PRICING -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Pricing that matches public sector reality</h2>
+          <div class="grid-3">
+            <div class="card card-alt">
+              <h3>Essential</h3>
+              <p style="font-size: 1.5rem; font-weight: 700">£1,750 / month</p>
+              <p style="color: var(--gov-dark-grey); font-weight: 600">
+                £10,000 setup
+              </p>
+              <hr
+                style="
+                  margin: 15px 0;
+                  border: 0;
+                  border-top: 1px solid var(--gov-border);
+                "
+              />
+              <ul>
+                <li>Website-trained agent</li>
+                <li>Triage &amp; routing</li>
+                <li>Monthly optimisation</li>
+              </ul>
+            </div>
+            <div
+              class="card card-alt"
+              style="border: 2px solid var(--gov-blue)"
+            >
+              <h3>Professional</h3>
+              <p style="font-size: 1.5rem; font-weight: 700">£4,000 / month</p>
+              <p style="color: var(--gov-dark-grey); font-weight: 600">
+                £20,000 setup
+              </p>
+              <hr
+                style="
+                  margin: 15px 0;
+                  border: 0;
+                  border-top: 1px solid var(--gov-border);
+                "
+              />
+              <ul>
+                <li>Workflows &amp; escalation logic</li>
+                <li>Performance dashboards</li>
+                <li>Governance &amp; quarterly tuning</li>
+              </ul>
+            </div>
+            <div class="card card-alt">
+              <h3>Enterprise</h3>
+              <p style="font-size: 1.5rem; font-weight: 700">
+                From £6,500 / month
+              </p>
+              <p style="color: var(--gov-dark-grey); font-weight: 600">
+                £25,000+ setup
+              </p>
+              <hr
+                style="
+                  margin: 15px 0;
+                  border: 0;
+                  border-top: 1px solid var(--gov-border);
+                "
+              />
+              <ul>
+                <li>Multi-service scale</li>
+                <li>Back-office / CRM integrations</li>
+                <li>Dedicated optimisation team</li>
+              </ul>
+            </div>
+          </div>
+          <p class="footnote">
+            Final pricing depends on the number of services covered, API
+            integrations required, and knowledge landscape complexity.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7) GOVERNANCE & SAFETY -->
+      <section class="section">
+        <div class="container">
+          <div class="grid-2" style="align-items: center">
+            <div>
+              <h2>Built for governance, not vibes</h2>
+              <ul class="bullets">
+                <li>
+                  <strong>DPIA-ready approach:</strong> Clear data boundaries
+                  and information governance compliant by design.
+                </li>
+                <li>
+                  <strong>Human escalation triggers:</strong> Safenet fallback
+                  for anything complex, sensitive, or uncertain.
+                </li>
+                <li>
+                  <strong>Content governance:</strong> Sources responses only
+                  from approved council URLs, backed by an audit trail.
+                </li>
+                <li>
+                  <strong>Accessibility first:</strong> Plain English outputs,
+                  WCAG-aware interface components.
+                </li>
+              </ul>
+              <p
+                style="
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  padding: 15px;
+                  background: var(--gov-grey);
+                  border-left: 4px solid var(--gov-blue);
+                "
+              >
+                “We’d rather the agent says ‘I don’t know’ than make something
+                up.”
+              </p>
+            </div>
+            <div>
+              <!-- Minimal icon layout conveying security/trust -->
+              <div
+                style="
+                  background: var(--gov-grey);
+                  padding: 40px;
+                  text-align: center;
+                  border: 1px solid var(--gov-border);
+                "
+              >
+                <div
+                  style="font-size: 4rem; margin-bottom: 20px"
+                  aria-hidden="true"
+                >
+                  &#x1F512;
+                </div>
+                <h3 style="font-size: 1.25rem">Secure &amp; Auditable</h3>
+                <p style="font-size: 1rem">
+                  No broad internet search. Controlled containment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8) IMPLEMENTATION -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Go live in 4–8 weeks</h2>
+          <div class="timeline">
+            <div class="timeline-step">
+              <h3>Week 1</h3>
+              <p>
+                Discovery, targeted service selection, and capturing baseline
+                demand measures.
+              </p>
+            </div>
+            <div class="timeline-step">
+              <h3>Week 2–3</h3>
+              <p>
+                Knowledge base compilation, defining routing rules, and
+                public-sector tone tuning.
+              </p>
+            </div>
+            <div class="timeline-step">
+              <h3>Week 4</h3>
+              <p>
+                Internal beta testing, intent failure logging, and adjusting
+                edge cases.
+              </p>
+            </div>
+            <div class="timeline-step">
+              <h3>
+                Week 5–8
+                <span style="font-weight: 400; color: var(--gov-dark-grey)"
+                  >(Optional / Enterprise)</span
+                >
+              </h3>
+              <p>
+                CRM and web forms integration, followed by the first continuous
+                optimisation cycle.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9) OUTCOMES -->
+      <section class="section">
+        <div class="container">
+          <h2>What good looks like</h2>
+          <p>
+            Metrics built for the real world, based on actual council use cases.
+          </p>
+          <div class="grid-3" style="margin-top: 30px">
+            <div class="card" style="text-align: center">
+              <span class="outcome-stat">30–55%</span>
+              <p style="font-weight: 600; font-size: 1.25rem; margin: 0">
+                Deflection rate
+              </p>
+            </div>
+            <div class="card" style="text-align: center">
+              <span class="outcome-stat">Instant</span>
+              <p style="font-weight: 600; font-size: 1.25rem; margin: 0">
+                Response time
+              </p>
+            </div>
+            <div class="card" style="text-align: center">
+              <span class="outcome-stat">1–3 FTE</span>
+              <p style="font-weight: 600; font-size: 1.25rem; margin: 0">
+                Equivalent officer time released
+              </p>
+            </div>
+          </div>
+          <p class="footnote" style="text-align: center">
+            Note: Actual outcomes depend heavily on services selected and your
+            existing content quality.
+          </p>
+        </div>
+      </section>
+
+      <!-- 10) FAQ -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Frequently asked council questions</h2>
+          <div class="faq-item">
+            <div class="faq-q">Is this just a chatbot?</div>
+            <p>
+              No. Standard chatbots use rigid decision trees that fail when
+              queried dynamically. This is an AI service agent backed by
+              governance rules, capable of understanding context and triggering
+              complex workflows.
+            </p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Will it replace staff?</div>
+            <p>
+              No. It is designed to act as a digital filter. By handling the 40%
+              of queries that are simply "routine signposting," it reduces
+              avoidable contact and releases front-line staff to tackle complex
+              casework that requires a human.
+            </p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Does it access resident records?</div>
+            <p>
+              By default, no. It operates on your publicly available domain
+              data. Deep back-office lookups (e.g., checking specific housing
+              benefit status) only happen on the Enterprise tier with secure,
+              credentialed API integration.
+            </p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What about digital exclusion?</div>
+            <p>
+              The agent is an optional channel. It absorbs demand from the
+              digitally confident majority, thereby reducing phone queues for
+              vulnerable residents who genuinely need to speak to an officer.
+            </p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How do we measure success?</div>
+            <p>
+              We baseline your current costs and call volumes in Week 1. You
+              receive a monthly dashboard showing containment rate, escalated
+              volumes, and specific knowledge gaps where residents get stuck.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11) FINAL CTA -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div>
+              <h2>Want to see your numbers?</h2>
+              <p style="font-size: 1.25rem">
+                Let's discuss how an AI Service Agent models against your
+                specific local authority contact volumes.
+              </p>
+              <div style="margin-top: 30px">
+                <a
+                  href="#discovery"
+                  class="btn btn-primary"
+                  onclick="
+                    alert('Demo: Redirects to booking calendar');
+                    return false;
+                  "
+                  >Book a discovery call</a
+                >
+              </div>
+            </div>
+            <div class="form-panel">
+              <form
+                onsubmit="
+                  alert('Demo: Form submitted');
+                  return false;
+                "
+              >
+                <h3 style="margin-bottom: 20px">Email us the basics</h3>
+                <div class="form-row">
+                  <label class="form-label" for="form-name">Name</label>
+                  <input
+                    type="text"
+                    id="form-name"
+                    class="form-input"
+                    required
+                  />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="form-org"
+                    >Council / Organisation</label
+                  >
+                  <input
+                    type="text"
+                    id="form-org"
+                    class="form-input"
+                    required
+                  />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="form-services"
+                    >Priority Service Areas</label
+                  >
+                  <input
+                    type="text"
+                    id="form-services"
+                    class="form-input"
+                    placeholder="e.g. Waste, Council Tax"
+                  />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="form-vol"
+                    >Rough annual contact volume</label
+                  >
+                  <input type="text" id="form-vol" class="form-input" />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="form-msg">Message</label>
+                  <textarea id="form-msg" class="form-input"></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="width: 100%; margin: 0"
+                >
+                  Send enquiry
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+          "
+        >
+          <div><strong>Civic Shift Ai Team</strong></div>
+          <div>
+            Contact:
+            <a href="mailto:hello@civicshift.ai">hello@civicshift.ai</a>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--gov-border)">
+            Designed for Local Government. <br />
+            <a href="#">Privacy Policy Placeholder</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookie-banner">
+      <div>
+        <span style="font-weight: 700; display: block; margin-bottom: 5px"
+          >Cookies on Civic Shift</span
+        >
+        We use some essential cookies to make this service work. We'd like to
+        set additional analytics cookies so we can understand how you use the
+        site and make improvements.
+      </div>
+      <div style="display: flex; gap: 10px; flex-shrink: 0">
+        <button
+          class="btn btn-primary"
+          style="margin: 0"
+          onclick="
+            document.getElementById('cookie-banner').classList.add('hidden')
+          "
+        >
+          Accept all
+        </button>
+        <button
+          class="btn btn-secondary"
+          style="margin: 0"
+          onclick="
+            document.getElementById('cookie-banner').classList.add('hidden')
+          "
+        >
+          Reject analytical cookies
+        </button>
+      </div>
+    </div>
+
+    <!-- CALCULATOR LOGIC -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const inputs = {
+          contacts: document.getElementById("calc-contacts"),
+          cost: document.getElementById("calc-cost"),
+          deflect: document.getElementById("calc-deflect"),
+          agentCost: document.getElementById("calc-agent-cost"),
+          setupCost: document.getElementById("calc-setup-cost"),
+        };
+
+        const outputs = {
+          valDeflect: document.getElementById("deflect-val"),
+          gross: document.getElementById("out-gross"),
+          netY1: document.getElementById("out-net-y1"),
+          netY2: document.getElementById("out-net-y2"),
+          payback: document.getElementById("out-payback"),
+        };
+
+        const scenarios = document.querySelectorAll(".btn-scenario");
+
+        const charts = {
+          low: document.getElementById("chart-low"),
+          mid: document.getElementById("chart-mid"),
+          high: document.getElementById("chart-high"),
+        };
+
+        const formatGbp = (num) => {
+          return new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }).format(num);
+        };
+
+        const calculate = () => {
+          const vals = {
+            contacts: parseFloat(inputs.contacts.value) || 0,
+            cost: parseFloat(inputs.cost.value) || 0,
+            deflect: parseFloat(inputs.deflect.value) || 0,
+            agentCost: parseFloat(inputs.agentCost.value) || 0,
+            setupCost: parseFloat(inputs.setupCost.value) || 0,
+          };
+
+          outputs.valDeflect.textContent = vals.deflect + "%";
+
+          // Core math
+          const grossSavings = vals.contacts * vals.cost * (vals.deflect / 100);
+          const netY1 = grossSavings - (vals.agentCost + vals.setupCost);
+          const netY2 = grossSavings - vals.agentCost;
+
+          let payback = 0;
+          if (grossSavings > 0) {
+            payback = (vals.agentCost + vals.setupCost) / (grossSavings / 12);
+          }
+
+          // Update text outputs
+          outputs.gross.textContent = formatGbp(grossSavings);
+          outputs.netY1.textContent = formatGbp(netY1);
+          outputs.netY2.textContent = formatGbp(netY2);
+
+          if (payback > 0 && payback < 36) {
+            outputs.payback.textContent = payback.toFixed(1) + " months";
+          } else if (payback >= 36) {
+            outputs.payback.textContent = "3+ years";
+          } else {
+            outputs.payback.textContent = "N/A";
+          }
+
+          // Adjust highlight colour if negative ROI
+          if (netY1 < 0) {
+            outputs.netY1.style.color = "#d4351c"; // Gov red
+          } else {
+            outputs.netY1.style.color = "var(--gov-green)";
+          }
+
+          updateCharts(vals);
+        };
+
+        const updateCharts = (currentVals) => {
+          // We want to calculate 3-year cumulative net benefit for each scenario
+          const calcCumulative = (deflectPercent) => {
+            const annualGross =
+              currentVals.contacts * currentVals.cost * (deflectPercent / 100);
+            const costTotal = currentVals.setupCost + currentVals.agentCost * 3;
+            const grossTotal = annualGross * 3;
+            return grossTotal - costTotal;
+          };
+
+          const valLow = calcCumulative(25);
+          const valMid = calcCumulative(40);
+          const valHigh = calcCumulative(55);
+
+          // For rendering proportional bars
+          const maxVal = Math.max(valLow, valMid, valHigh, 1); // avoid /0
+
+          const setChartWidth = (el, val) => {
+            if (val <= 0) {
+              el.style.width = "10%";
+              el.style.background = "#d4351c";
+              el.textContent = formatGbp(val);
+            } else {
+              // calculate width percentage relative to max, cap between 15 and 100
+              const w = Math.max(15, Math.min(100, (val / maxVal) * 100));
+              el.style.width = w + "%";
+              if (el.id === "chart-low") el.style.background = "#505a5f";
+              if (el.id === "chart-mid")
+                el.style.background = "var(--gov-blue)";
+              if (el.id === "chart-high")
+                el.style.background = "var(--gov-green)";
+              el.textContent = formatGbp(val);
+            }
+          };
+
+          setChartWidth(charts.low, valLow);
+          setChartWidth(charts.mid, valMid);
+          setChartWidth(charts.high, valHigh);
+        };
+
+        // Event Listeners
+        Object.values(inputs).forEach((input) => {
+          input.addEventListener("input", () => {
+            // Remove active class from buttons if slider moves
+            if (input.id === "calc-deflect") {
+              scenarios.forEach((btn) => btn.classList.remove("active"));
+              const match = document.querySelector(
+                `.btn-scenario[data-val="${input.value}"]`,
+              );
+              if (match) match.classList.add("active");
+            }
+            calculate();
+          });
+        });
+
+        scenarios.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            scenarios.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            inputs.deflect.value = btn.getAttribute("data-val");
+            calculate();
+          });
+        });
+
+        // Initial build
+        calculate();
+      });
+    </script>
+  </body>
+</html>
