@@ -6,6 +6,8 @@
 [build.environment]
   # Node version (if needed for any future build steps)
   NODE_VERSION = "18"
+  # Disable submodule cloning (no submodules are used in this repo)
+  GIT_SUBMODULE_STRATEGY = "none"
 
 # Redirect rules for clean URLs (optional)
 [[redirects]]
