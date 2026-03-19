@@ -11,250 +11,11 @@
     <meta property="og:title" content="AI Service Agents for UK Councils | Civic Shift">
     <meta property="og:description" content="AI Service Agents for UK councils. Built for real-world demand. Reduce avoidable contact, improve response times, and release officer capacity.">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <style>
-        /* AI Agent specific bespoke styles (injected into the main theme) */
-        
-        .ai-grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .ai-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-        @media (min-width: 768px) {
-            .ai-grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        /* Feature Cards */
-        .feature-card {
-            padding: 2rem;
-            height: 100%;
-            border-top: 4px solid var(--accent-green);
-        }
-
-        .feature-card.alt-border {
-            border-top: 4px solid var(--accent-gold);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-main);
-        }
-
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1.5rem;
-        }
-        .feature-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-body);
-        }
-        .feature-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-green);
-            font-weight: bold;
-        }
-
-        /* Pricing Cards */
-        .pricing-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin: 0.5rem 0;
-            font-family: var(--font-heading);
-        }
-        .pricing-setup {
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Clean Tables */
-        .table-responsive {
-            overflow-x: auto;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #e5e7eb;
-            margin: 2rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            min-width: 600px;
-        }
-        th, td {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            vertical-align: top;
-        }
-        th {
-            background-color: var(--bg-light);
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* ROI Calculator Styles */
-        .calc-panel {
-            padding: 2.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        input[type="range"] {
-            width: 100%;
-            cursor: pointer;
-            accent-color: var(--accent-green);
-            padding: 0;
-            border: none;
-            background: transparent;
-        }
-
-        .slider-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .slider-val {
-            background: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            border: 1px solid #e5e7eb;
-            font-weight: 700;
-            color: var(--accent-green);
-            min-width: 70px;
-            text-align: center;
-        }
-
-        .scenario-btns {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-scenario {
-            background: white;
-            border: 1px solid #d1d5db;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all 0.2s;
-        }
-        
-        .btn-scenario:hover, .btn-scenario.active {
-            background: var(--accent-green);
-            color: white;
-            border-color: var(--accent-green);
-        }
-
-        .output-panel {
-            background: var(--primary-dark);
-            color: white;
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            margin-bottom: 2rem;
-        }
-
-        .output-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .output-row:last-child { border-bottom: none; }
-
-        .output-label { font-weight: 500; color: #cbd5e1; }
-        .output-value { font-size: 1.25rem; font-weight: 700; font-family: var(--font-heading); }
-        .output-value.highlight { color: var(--accent-green); font-size: 1.75rem; }
-
-        .chart-container {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid #e5e7eb;
-        }
-
-        .chart-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .chart-label { width: 80px; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); }
-        .chart-track {
-            flex-grow: 1;
-            background: var(--bg-light);
-            height: 24px;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .chart-fill {
-            height: 100%;
-            background: var(--accent-green);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            padding-left: 0.75rem;
-            color: white;
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-        .chart-fill.low { background: #9ca3af; }
-        .chart-fill.mid { background: var(--accent-teal); }
-
-        .timeline {
-            border-left: 3px solid var(--accent-green);
-            padding-left: 2rem;
-            margin-left: 1rem;
-        }
-        .timeline-step {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-        .timeline-step::before {
-            content: '';
-            position: absolute;
-            left: -35px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: var(--accent-green);
-            border: 4px solid var(--bg-green-subtle);
-            border-radius: 50%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="ai-agent.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -274,290 +35,212 @@
             <a href="success_stories.html" class="hover:text-teal">Success Stories</a>
             <a href="blog.html" class="hover:text-teal">Insights</a>
             <a href="estimator.html" class="hover:text-teal">Rates</a>
-            <a href="contact.html" class="btn btn-primary">Contact Me</a>
+            <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="bg-dark about-hero ai-hero-header">
+    <!-- Page Header (Pentagram-inspired minimalist) -->
+    <header class="luxury-hero">
         <div class="container animate-fade-up">
-            <h1>Digital Demand &amp; Case Acceleration Model</h1>
-            <p class="text-green hero-subtitle ai-hero-subtitle">
-                Two AI service agents designed for UK councils. One manages front-door demand. One improves officer supply.
-            </p>
-            <div class="ai-hero-actions">
-                <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
-                <a href="#roi-calculator" class="btn btn-secondary ai-btn-outline">Calculate ROI</a>
+            <h1>Digital Demand &<br><strong>Case Acceleration.</strong></h1>
+            <p>Two robust AI service agents engineered for UK councils. One curtails front-door demand. One amplifies internal officer supply.</p>
+            <div class="flex gap-1 flex-wrap mt-2">
+                <a href="#contact" class="btn-luxury">Book a Discovery Call</a>
+                <a href="#roi-calculator" class="btn-luxury btn-luxury-outline">Calculate ROI</a>
             </div>
         </div>
     </header>
 
     <!-- The Dual-Agent Strategy -->
-    <section class="services-content-section bg-light">
-        <div class="container">
-            <div class="services-intro animate-fade-up">
-                <h2 class="ai-h2-mb">Stop launching chatbots. Start creating capacity.</h2>
-                <p>Most councils stop at the front-end agent. But the real efficiency gain sits in internal workflow acceleration. Deploying a dual-agent model creates system-level impact, driving undeniable ROI.</p>
+    <section class="luxury-section">
+        <div class="container pb-4">
+            <h2 class="luxury-heading">Stop launching chatbots.<br>Start creating capacity.</h2>
+            <p class="luxury-text-large max-w-800 mb-4">Most councils stop at the front-end agent. But the real efficiency gain sits in internal workflow acceleration. Deploying a dual-agent model creates system-level impact, driving undeniable ROI.</p>
+
+            <div class="luxury-grid mb-4">
+                <div>
+                    <h3 class="text-3xl font-bold mb-1 text-primary-dark">Resident Agent</h3>
+                    <p class="text-lg text-muted mb-2">Sits on your website to handle high-volume public enquiries, reduce avoidable contact, and route demand accurately.</p>
+                    <div class="text-teal font-bold text-lg">Manages Demand (25-55% Deflection)</div>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-1 text-primary-dark">Officer Agent</h3>
+                    <p class="text-lg text-muted mb-2">Works behind the scenes to help officers resolve complex, escalated enquiries faster and more consistently.</p>
+                    <div class="text-teal font-bold text-lg">Improves Supply (30% Productivity Gain)</div>
+                </div>
             </div>
 
-            <div class="ai-grid-2">
-                <div class="glass-panel feature-card border-green">
-                    <div class="service-icon bg-green">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                    </div>
-                    <h3>Resident Service Agent</h3>
-                    <p>Sits on your website to handle high-volume public enquiries, reduce avoidable contact, and route demand accurately.</p>
-                    <p><strong>Impact:</strong> Manages Demand (25-55% Contact Deflection)</p>
-                </div>
-                <div class="glass-panel feature-card border-gold">
-                    <div class="service-icon bg-gold">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                    </div>
-                    <h3>Officer Case Acceleration Agent</h3>
-                    <p>Works behind the scenes to help officers resolve complex, escalated enquiries faster and more consistently.</p>
-                    <p><strong>Impact:</strong> Improves Supply (30% Officer Productivity Gain)</p>
-                </div>
-            </div>
-            
-            <!-- Public Sector Core Standards -->
-            <div class="glass-panel mt-3 foundation-banner p-2">
-                <h3 class="text-2xl text-dark mb-1-5 text-center font-bold">Foundation level defaults</h3>
-                <div class="ai-grid-2 gap-2">
+            <div class="border-t-black-alpha-10 pt-3 mt-4">
+                <div class="luxury-grid">
                     <div>
-                        <h4 class="text-lg text-dark mb-0-5 flex-align-center gap-0-5">✍️ GOV.UK Content Design Standards</h4>
-                        <p class="text-muted text-sm line-height-normal">All agent responses strictly follow the <a href="https://www.gov.uk/guidance/content-design/writing-for-gov-uk" target="_blank" rel="noopener" class="text-green underline font-medium">GOV.UK writing standards</a>. This guarantees clear, accessible and plain English communication across all channels.</p>
+                        <h4 class="text-xl font-bold mb-0-5 text-primary-dark">GOV.UK Content Standards</h4>
+                        <p class="text-muted">All agent responses strictly follow the GOV.UK writing standards. Guarantees clear, accessible, plain English communication.</p>
                     </div>
                     <div>
-                        <h4 class="text-lg text-dark mb-0-5 flex-align-center gap-0-5">🌍 Multi-Lingual Support included</h4>
-                        <p class="text-muted text-sm line-height-normal">Both agents can communicate in dozens of languages. You can support diverse customer groups without translating your knowledge bases.</p>
+                        <h4 class="text-xl font-bold mb-0-5 text-primary-dark">Multi-Lingual Support</h4>
+                        <p class="text-muted">Communicate in dozens of languages instantly. Support diverse customer groups without translating your knowledge bases.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What it is -->
-    <section class="services-content-section ai-section-pb">
+    <!-- Resident Service Agent Deep Dive -->
+    <section class="luxury-section luxury-section-dark">
         <div class="container">
-            <div class="ai-grid-2 ai-grid-center">
+            <div class="luxury-grid align-items-center">
+                <!-- Left Interactive Demo -->
+                <div class="glass-mockup pr-2">
+                    <div class="flex-between mb-2">
+                        <div class="flex-align-center gap-0-5">
+                            <div class="status-dot"></div>
+                            <span class="text-white font-semibold">Resident Agent</span>
+                        </div>
+                        <span class="text-white-alpha-60 text-sm">24/7 Active</span>
+                    </div>
+
+                    <div class="lux-chat-bubble lux-chat-user flex justify-end">
+                        My bin wasn't collected today. What should I do?
+                    </div>
+
+                    <div class="lux-chat-bubble-agent line-height-relaxed">
+                        I can help with that. To report a missed collection, please use our <a href="#" class="text-teal underline">Missed Bin form</a>. I have pre-filled the category for you.
+                    </div>
+                </div>
+
+                <!-- Right Details -->
+                <div class="pl-0">
+                    <div class="text-teal font-bold tracking-wide uppercase text-sm mb-1">FRONT-DOOR DEPLOYMENT</div>
+                    <h2 class="luxury-heading text-white">Meet your new digital<br>service worker.</h2>
+                    <p class="luxury-text-large dark-mode mb-2">A reliable, policy-driven worker that operates 24/7 directly on your website.</p>
+                    
+                    <ul class="luxury-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Answers common queries using your approved knowledge base.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Routes residents to the right form using strict escalation rules.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Creates structured CRM cases to reduce manual data entry.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <!-- Use Cases -->
+            <div class="mt-4 pt-4 border-t-white-alpha-20">
+                <div class="luxury-grid features-grid">
+                    <div>
+                        <h4 class="text-teal text-xl mb-0-5 font-bold">Waste</h4>
+                        <p class="text-sm text-white-alpha-80 line-height-normal">Missed bins guidance, assisted collections, bulky waste booking routing.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-teal text-xl mb-0-5 font-bold">Council Tax</h4>
+                        <p class="text-sm text-white-alpha-80 line-height-normal">Band queries, payment methods, discounts explanation.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-teal text-xl mb-0-5 font-bold">Planning</h4>
+                        <p class="text-sm text-white-alpha-80 line-height-normal">How to apply, validation requirements, appeal signposting.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-teal text-xl mb-0-5 font-bold">Housing</h4>
+                        <p class="text-sm text-white-alpha-80 line-height-normal">Initial triage before officer review.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Officer Agent Deep Dive -->
+    <section class="luxury-section">
+        <div class="container">
+            <div class="luxury-grid align-items-center">
+                <!-- Details -->
                 <div class="pr-2">
-                    <h2 class="text-3xl font-bold text-dark mb-1 line-height-tight">Meet your digital<br><span class="text-green">service worker.</span></h2>
-                    <p class="text-md text-muted mb-2">We offer a reliable, policy-driven digital worker that operates 24/7 on your website.</p>
+                    <div class="text-teal font-bold tracking-wide uppercase text-sm mb-1">INTERNAL ACCELERATION</div>
+                    <h2 class="luxury-heading">A digital case<br>assistant for officers.</h2>
+                    <p class="luxury-text-large mb-2">Supports officers out of sight. Summarises complex emails, extracts facts, suggests policy-aligned draft responses, and creates structured CRM notes.</p>
                     
-                    <ul class="feature-list mb-2">
-                        <li>Answers common queries out-of-hours using your approved, public knowledge base.</li>
-                        <li>Routes residents to the right form or team, using strict escalation rules.</li>
-                        <li>Creates structured CRM cases where appropriate to reduce manual data entry.</li>
-                        <li>Provides monthly insights: top contact topics, failure points, and overall deflection rate.</li>
-                    </ul>
-
-                    <div class="ai-context-box mb-0 p-1-5 rounded-r-lg">
-                        <strong class="text-dark block mb-0-25">Important context:</strong>
-                        <span class="text-muted text-sm">The agent is not linked to back-office systems unless explicitly integrated. It does not perform postcode lookups or personal data retrieval by default.</span>
-                    </div>
-                </div>
-                
-                <!-- Interactive / Visual Demo -->
-                <div class="ai-demo-container shadow-2xl">
-                    
-                    <!-- Decorative header -->
-                    <div class="ai-demo-header flex-between mb-0-5">
-                        <div class="flex-align-center gap-0-75">
-                            <div class="ai-demo-header-dot"></div>
-                            <span class="text-white font-semibold tracking-wide">Resident Agent Live</span>
-                        </div>
-                        <div class="text-white-alpha-50 text-xs">24/7 Active</div>
-                    </div>
-
-                    <!-- Chat Bubbles -->
-                    <!-- Resident -->
-                    <div class="flex justify-end gap-1">
-                        <div class="ai-chat-bubble-user shadow-md">
-                            My bin wasn't collected today. What should I do?
-                        </div>
-                    </div>
-
-                    <!-- Agent -->
-                    <div class="flex gap-1 items-end">
-                        <div class="ai-chat-avatar">🤖</div>
-                        <div class="ai-chat-bubble-agent">
-                            I can help with that. To report a missed collection, please use our <a href="#" class="text-green underline">Missed Bin form</a>. I have pre-filled the category for you.
-                        </div>
-                    </div>
-
-                    <!-- Agent 2 -->
-                    <div class="flex gap-1 items-end -mt-0-5">
-                        <div class="ai-chat-avatar-spacer"></div> <!-- spacer -->
-                        <div class="ai-chat-bubble-agent-followup">
-                            <div class="flex gap-1 mt-0-5 flex-wrap">
-                                <button class="ai-demo-btn-primary hover-scale">View Form</button>
-                                <button class="ai-demo-btn-secondary hover-text-white">Ask another question</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Agent 1: Front Door -->
-    <section class="services-content-section bg-light">
-        <div class="container">
-            <h2 class="text-center ai-h2-mb flex-center gap-0-75">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                Resident Service Agent Use Cases
-            </h2>
-            <p class="text-center text-muted mx-auto mb-2 max-w-600">Handles high-volume public enquiries. Routes residents to the right forms first time. Explains policies in plain English. Operates 24/7.</p>
-            
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Service area</th>
-                            <th>What It Handles</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Waste</strong></td>
-                            <td>Missed bins guidance, assisted collections, bulky waste booking routing</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Council Tax</strong></td>
-                            <td>Band queries, payment methods, discounts explanation</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Planning</strong></td>
-                            <td>How to apply, validation requirements, appeal signposting</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Housing</strong></td>
-                            <td>Initial triage before officer review</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Environmental Services</strong></td>
-                            <td>Reporting routes, policy explanations</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="ai-grid-2 mt-2">
-                <div class="glass-panel p-1-5 bg-white">
-                    <h4 class="text-red-500 mb-0-5">Where It Escalates</h4>
-                    <ul class="pl-1-2 text-body">
-                        <li>Complex safeguarding cases</li>
-                        <li>Case-specific account queries</li>
-                        <li>Appeals or complaints</li>
-                        <li>Situations requiring officer judgement</li>
+                    <ul class="luxury-list-light">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Clear human oversight. No autonomous decisions without review.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Transparent draft-only responses aligned strictly to council policy.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Fully logged AI outputs to ensure complete auditability.</span>
+                        </li>
                     </ul>
                 </div>
-                <div class="glass-panel p-1-5 bg-white">
-                    <h4 class="text-green mb-0-5">Financial Impact</h4>
-                    <ul class="pl-1-2 text-body">
-                        <li>25–55% contact deflection</li>
-                        <li>Reduced repetitive officer time</li>
-                        <li>24/7 containment without extra staffing</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Agent 2: Internal -->
-    <section class="services-content-section">
-        <div class="container">
-            <h2 class="text-center ai-h2-mb flex-center gap-0-75">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                Officer Case Acceleration Agent Use Cases
-            </h2>
-            <p class="text-center max-w-600 mx-auto mb-2 text-muted">A digital case assistant that supports officers behind the scenes. Summarises emails, extracts facts, suggests policy-aligned draft responses, and creates structured notes.</p>
-            
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Service area</th>
-                            <th>How It Supports Officers</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Revenues & Benefits</strong></td>
-                            <td>Drafts responses based on policy rules</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Planning</strong></td>
-                            <td>Summarises objections and identifies key planning grounds</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Housing</strong></td>
-                            <td>Flags vulnerability indicators in applications</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Waste</strong></td>
-                            <td>Collates complaint history and previous service logs</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Corporate Complaints</strong></td>
-                            <td>Suggests consistent formal response structures</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="ai-context-box mt-2">
-                <strong>Governance Considerations:</strong> Clear human oversight. No autonomous decision-making. Transparent draft-only responses. Logged AI-assisted outputs. Policy-controlled knowledge sources. It is positioned as an Assistant, not a decision-maker.
-            </div>
-            
-            <!-- Interactive / Visual Demo for Officer Agent -->
-            <div class="mt-4 bg-white rounded-1-5 shadow-xl border-black-alpha-05 overflow-hidden">
-                <!-- Mockup Header -->
-                <div class="bg-primary-dark p-1-1-5 flex-between">
-                    <div class="flex-align-center gap-0-75">
-                        <span class="text-white font-semibold text-1-1">Officer Dashboard</span>
-                        <span class="bg-white-alpha-20 text-white p-0-25-0-75 rounded-1 font-0-8">Revenues & Benefits</span>
+                <!-- Interactive Demo -->
+                <div class="glass-mockup-blue">
+                    <div class="flex-between mb-2 pb-1 border-b-white-alpha-20">
+                        <span class="text-white font-bold">Officer Copilot</span>
+                        <span class="text-white-alpha-80 text-sm font-semibold uppercase tracking-wide">Revenues & Benefits</span>
                     </div>
-                </div>
-                
-                <div class="ai-grid-2 gap-0">
-                    <!-- Left: Resident Email -->
-                    <div class="p-2 border-r-black-alpha-05 bg-blue-50">
-                        <div class="mb-1 text-muted text-sm font-medium">INCOMING QUERY</div>
-                        <div class="bg-white p-1-5 rounded-0-5 shadow-sm border-black-alpha-05">
-                            <div class="mb-1 pb-1 border-b-black-alpha-05">
-                                <strong>From:</strong> J. Smith<br>
-                                <strong>Subject:</strong> Council Tax Arrears and Job Loss
-                            </div>
-                            <p class="text-body text-sm line-height-normal">
-                                "I am writing because I have just lost my job and cannot pay this month's council tax bill. I live with my wife and we have two children under 5. What help is available and can I pause my payments?"
-                            </p>
+
+                    <div class="text-sm text-white-alpha-80 mb-0-5 uppercase font-semibold tracking-wide">Incoming Query</div>
+                    <div class="bg-white-alpha-10 p-1-5 rounded-1 shadow-sm mb-2 text-sm line-height-relaxed border border-white-alpha-20 text-white">
+                        <div class="mb-0-5 pb-0-5 border-b-white-alpha-20">
+                            <strong>From:</strong> J. Smith<br>
+                            <strong>Subject:</strong> Council Tax Arrears and Job Loss
                         </div>
+                        "I am writing because I have just lost my job and cannot pay this month's council tax bill. I live with my wife and we have two children under 5. What help is available and can I pause my payments?"
+                    </div>
+
+                    <div class="text-sm text-white-alpha-80 mb-0-5 uppercase font-semibold tracking-wide flex-align-center gap-0-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        AI Summary & Actions
+                    </div>
+                    <div class="bg-white-alpha-20 p-1-5 rounded-1 mb-2 text-sm line-height-relaxed border border-white-alpha-20 text-white">
+                        <strong class="text-white block mb-0-25">Alert:</strong> Potential vulnerability (2 children under 5, job loss).<br>
+                        <strong class="text-white block mt-0-5 mb-0-25">Action:</strong> Eligible for CTS. Hold recovery for 30 days pending claim.
+                    </div>
+
+                    <div class="text-sm text-white-alpha-80 mb-0-5 uppercase font-semibold tracking-wide">Drafted Response</div>
+                    <div class="p-1-5 rounded-1 text-sm line-height-relaxed border border-white-alpha-20 font-italic text-white-alpha-80 mb-1-5 bg-white-alpha-5">
+                        "Dear J. Smith, I am sorry to hear about your recent job loss. I have placed a 30-day hold on your account. You are likely eligible for Council Tax Support..."
                     </div>
                     
-                    <!-- Right: AI Assistant Action -->
-                    <div class="p-2 bg-white">
-                        <div class="flex-align-center gap-0-5 mb-1 text-gold text-sm font-semibold">
-                            <span class="text-lg">⚡</span> AI ASSISTANT SUMMARY
+                    <div class="flex flex-col gap-0-5">
+                        <button class="btn btn-primary w-full text-sm btn-rounded p-1">Approve & Send Email</button>
+                        <div class="flex gap-0-5">
+                            <button class="btn btn-luxury-outline w-full text-sm btn-rounded p-1 bg-white-alpha-10 border-white-alpha-20 text-white">Copy to Email</button>
+                            <button class="btn btn-luxury-outline w-full text-sm btn-rounded p-1 bg-white-alpha-10 border-white-alpha-20 text-white">Escalate to Supervisor</button>
                         </div>
-                        
-                        <div class="bg-gold-alpha-05 p-1-5 rounded-0-5 border-l-gold mb-1-5">
-                            <ul class="list-none p-0 m-0 text-dark text-sm">
-                                <li class="mb-0-5"><strong>Alert:</strong> Potential vulnerability (2 children under 5, recent job loss).</li>
-                                <li class="mb-0-5"><strong>Policy Match:</strong> Eligible for Council Tax Support (CTS) application.</li>
-                                <li><strong>Action Required:</strong> Hold recovery action for 30 days pending CTS claim.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="mb-0-5 text-dark text-sm font-semibold">Suggested Draft Response</div>
-                        <div class="border-black-alpha-10 rounded-0-5 p-1 text-muted text-sm italic bg-blue-50">
-                            "Dear J. Smith, I am sorry to hear about your recent job loss. I have placed a 30-day hold on your account. You are likely eligible for Council Tax Support. Please complete the application here [LINK]..."
-                        </div>
-                        <div class="mt-1 flex-align-center gap-1 flex-wrap">
-                            <button class="btn btn-primary btn-small">Approve & Send</button>
-                            <button class="btn btn-outline btn-small">Copy to Email</button>
-                            <button class="btn btn-outline btn-small">Edit Draft</button>
-                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Use Cases -->
+            <div class="mt-4 pt-4 border-t-black-alpha-10">
+                <div class="luxury-grid features-grid">
+                    <div>
+                        <h4 class="text-primary-dark text-xl mb-0-5 font-bold">Revenues & Benefits</h4>
+                        <p class="text-sm text-muted line-height-normal">Drafts assessment responses based on complex policy logic.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-primary-dark text-xl mb-0-5 font-bold">Planning</h4>
+                        <p class="text-sm text-muted line-height-normal">Summarises multi-page objections and extracts key planning grounds.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-primary-dark text-xl mb-0-5 font-bold">Housing</h4>
+                        <p class="text-sm text-muted line-height-normal">Flags vulnerability indicators across disparate application files.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-primary-dark text-xl mb-0-5 font-bold">Complaints</h4>
+                        <p class="text-sm text-muted line-height-normal">Suggests consistent, formal response structures based on past resolutions.</p>
                     </div>
                 </div>
             </div>
@@ -565,255 +248,316 @@
     </section>
 
     <!-- ROI Calculators Split -->
-    <section id="roi-calculator" class="services-content-section bg-light border-t-black-alpha-05">
+    <section id="roi-calculator" class="luxury-section bg-light border-y-black-alpha-05">
         <div class="container">
-            <div class="services-intro">
-                <h2>Calculate Your Impact</h2>
-                <p>Estimate the potential savings and capacity creation for both the Resident Service Agent and the Officer Case Acceleration Agent.</p>
+            <div class="text-center mb-5">
+                <h2 class="luxury-heading">Calculate Your Impact</h2>
+                <p class="luxury-text-large max-w-800 mx-auto">Estimate the potential recurring savings and capacity generation for both agents based on your specific volume metrics in real-time.</p>
             </div>
 
-            <div class="ai-grid-2 gap-3">
-                
-                <!-- Resident Agent Calculator -->
-                <div class="flex flex-col h-full">
-                    <h3 class="text-primary-dark text-1-5 mb-1-5 flex-align-center gap-0-75">
-                        <span class="bg-green text-white w-32 h-32 flex-center rounded-full text-1">1</span>
-                        Resident Demand Deflection
-                    </h3>
-                    
-                    <div class="glass-panel calc-panel mb-2 flex-grow-1">
-                        <div class="form-group">
-                            <label for="calc1-contacts">Total annual front-door contacts</label>
-                            <input type="number" id="calc1-contacts" value="60000" min="0" step="1000">
-                        </div>
-                        <div class="form-group">
-                            <label for="calc1-cost">Average handling cost (£)</label>
-                            <input type="number" id="calc1-cost" value="4.75" min="0" step="0.05">
-                        </div>
-                        <div class="form-group ai-form-mt">
-                            <label for="calc1-deflect">Expected AI deflection rate</label>
-                            <div class="slider-wrapper">
-                                <input type="range" id="calc1-deflect" value="40" min="10" max="70" step="1">
-                                <span class="slider-val" id="val1-deflect" aria-live="polite">40%</span>
-                            </div>
-                        </div>
-                        <div class="form-group mt-2 pt-1 border-t-black-alpha-05">
-                            <label for="calc1-setup">Estimated Setup Fee (£)</label>
-                            <input type="number" id="calc1-setup" value="7500" min="0" step="500">
-                        </div>
-                        <div class="form-group">
-                            <label for="calc1-annual">Annual Agent Subscription (£)</label>
-                            <input type="number" id="calc1-annual" value="4200" min="0" step="100">
+            <!-- Resident Agent Premium Calculator -->
+            <div class="premium-calc-container mb-4">
+                <div class="premium-calc-inputs">
+                    <h3 class="text-2xl font-bold mb-3 pb-1 text-primary-dark border-b-black-alpha-05">Resident Demand Deflection</h3>
+                    <p class="text-muted text-sm mb-3">Calculate savings created from reducing repetitive front-door enquiries.</p>
+
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc1-contacts">
+                            Annual Enquiries <span class="text-muted font-normal text-sm">front-door contacts</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="calc1-contacts" class="luxury-calc-input" value="60000" min="0" step="1000">
                         </div>
                     </div>
+                    
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc1-cost">
+                            Cost per Enquiry <span class="text-muted font-normal text-sm">average handling cost</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">£</span>
+                            <input type="number" id="calc1-cost" class="luxury-calc-input input-with-prefix" value="4.75" min="0" step="0.05">
+                        </div>
+                    </div>
+                    
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc1-deflect">
+                            Expected AI Deflection Target <span id="val1-deflect" class="text-teal font-bold">40%</span>
+                        </label>
+                        <input type="range" id="calc1-deflect" class="luxury-calc-slider" value="40" min="10" max="70" step="1">
+                    </div>
+                    
+                    <input type="hidden" id="calc1-setup" value="7500">
+                    <input type="hidden" id="calc1-annual" value="4200">
+                </div>
 
-                    <div class="output-panel shadow-xl" aria-live="polite">
-                        <div class="output-row">
-                            <div class="output-label">Annual Savings Created</div>
-                            <div class="output-value" id="out1-savings">£0</div>
+                <div class="premium-calc-outputs">
+                    <div class="mb-3">
+                        <div class="luxury-output-label">Annual Savings Created</div>
+                        <div class="luxury-output" id="out1-savings">£0</div>
+                    </div>
+                    
+                    <div class="border-t-white-alpha-20 pt-2 flex flex-col gap-1 mt-auto">
+                        <div class="flex-between text-white-alpha-80">
+                            <span class="font-semibold tracking-wide text-sm uppercase">Net 1-Year Benefit</span>
+                            <span id="out1-net" class="font-bold text-lg text-white">£0</span>
                         </div>
-                        <div class="output-row border-t-white-alpha-20 mt-1 pt-1">
-                            <div class="output-label text-white font-bold">Net 1-Year Benefit</div>
-                            <div class="output-value highlight text-green" id="out1-net">£0</div>
-                        </div>
-                        <div class="output-row mt-0-5">
-                            <div class="output-label text-white-alpha-80 font-bold">Net 3-Year ROI</div>
-                            <div class="output-value highlight text-green text-3xl" id="out1-net3">£0</div>
+                        <div class="flex-between text-white-alpha-80 mt-0-5">
+                            <span class="font-semibold tracking-wide text-sm uppercase text-teal">Net 3-Year ROI</span>
+                            <span id="out1-net3" class="font-bold text-xl text-teal">£0</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Officer Agent Calculator -->
-                <div class="flex flex-col h-full">
-                    <h3 class="text-primary-dark text-1-5 mb-1-5 flex-align-center gap-0-75">
-                        <span class="bg-gold text-white w-32 h-32 flex-center rounded-full text-1">2</span>
-                        Officer Capacity Creation
-                    </h3>
-                    
-                    <div class="glass-panel calc-panel mb-2 border-gold-alpha-30 flex-grow-1">
-                        <div class="form-group">
-                            <label for="calc2-fte">Number of case officers (FTEs)</label>
-                            <input type="number" id="calc2-fte" value="10" min="0" step="1">
-                        </div>
-                        <div class="form-group">
-                            <label for="calc2-salary">Fully loaded cost per FTE (£)</label>
-                            <input type="number" id="calc2-salary" value="38000" min="0" step="1000">
-                        </div>
-                        <div class="form-group ai-form-mt">
-                            <label for="calc2-admin">Drafting/research and responding (% of week)</label>
-                            <div class="slider-wrapper">
-                                <input type="range" id="calc2-admin" value="40" min="5" max="60" step="1">
-                                <span class="slider-val" id="val2-admin" aria-live="polite">40%</span>
-                            </div>
-                        </div>
-                        <div class="form-group mt-2 pt-1 border-t-black-alpha-05">
-                            <label for="calc2-setup">Estimated Setup Fee (£)</label>
-                            <input type="number" id="calc2-setup" value="10000" min="0" step="500">
-                        </div>
-                        <div class="form-group">
-                            <label for="calc2-annual">Annual Agent Subscription (£)</label>
-                            <input type="number" id="calc2-annual" value="6000" min="0" step="100">
+            <!-- Officer Agent Premium Calculator -->
+            <div class="premium-calc-container mt-4">
+                <div class="premium-calc-inputs">
+                    <h3 class="text-2xl font-bold mb-3 pb-1 text-primary-dark border-b-black-alpha-05">Officer Capacity Generation</h3>
+                    <p class="text-muted text-sm mb-3">Calculate the internal productivity value unlocked across case officer roles.</p>
+
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc2-fte">
+                            Team Size <span class="text-muted font-normal text-sm">FTE case officers</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="calc2-fte" class="luxury-calc-input" value="10" min="0" step="1">
                         </div>
                     </div>
+                    
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc2-salary">
+                            Officer Salary <span class="text-muted font-normal text-sm">fully loaded cost per FTE</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">£</span>
+                            <input type="number" id="calc2-salary" class="luxury-calc-input input-with-prefix" value="38000" min="0" step="1000">
+                        </div>
+                    </div>
+                    
+                    <div class="luxury-calc-group">
+                        <label class="luxury-calc-label" for="calc2-admin">
+                            Drafting & Research <span id="val2-admin" class="text-teal font-bold">40%</span>
+                        </label>
+                        <p class="text-xs text-muted mt-0 mb-1">Percentage of week spent on routine drafting/research</p>
+                        <input type="range" id="calc2-admin" class="luxury-calc-slider" value="40" min="5" max="60" step="1">
+                    </div>
 
-                    <div class="output-panel shadow-xl bg-gradient-dark-alt border-gold-alpha-20" aria-live="polite">
-                        <div class="output-row">
-                            <div class="output-label">Annual Productivity Value</div>
-                            <div class="output-value" id="out2-capacity">£0</div>
+                    <input type="hidden" id="calc2-setup" value="10000">
+                    <input type="hidden" id="calc2-annual" value="6000">
+                </div>
+
+                <div class="premium-calc-outputs">
+                    <div class="mb-3">
+                        <div class="luxury-output-label">Annual Productivity Value</div>
+                        <div class="luxury-output" id="out2-capacity">£0</div>
+                    </div>
+                    
+                    <div class="border-t-white-alpha-20 pt-2 flex flex-col gap-1 mt-auto">
+                        <div class="flex-between text-white-alpha-80">
+                            <span class="font-semibold tracking-wide text-sm uppercase">Net 1-Year Benefit</span>
+                            <span id="out2-net" class="font-bold text-lg text-white">£0</span>
                         </div>
-                        <div class="output-row border-t-white-alpha-20 mt-1 pt-1">
-                            <div class="output-label text-white font-bold">Net 1-Year Benefit</div>
-                            <div class="output-value highlight text-gold" id="out2-net">£0</div>
-                        </div>
-                        <div class="output-row mt-0-5">
-                            <div class="output-label text-white-alpha-80 font-bold">Net 3-Year ROI</div>
-                            <div class="output-value highlight text-gold text-3xl" id="out2-net3">£0</div>
+                        <div class="flex-between text-white-alpha-80 mt-0-5">
+                            <span class="font-semibold tracking-wide text-sm uppercase text-teal">Net 3-Year ROI</span>
+                            <span id="out2-net3" class="font-bold text-xl text-teal">£0</span>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </section>
 
-    <!-- Pricing Layers -->
-    <section class="services-content-section bg-light">
+    <!-- Premium Pricing Section -->
+    <section class="pricing-section">
         <div class="container">
-            <h2 class="text-center ai-pricing-title">Simple, Transparent Pricing</h2>
-            <p class="text-center max-w-700 mx-auto mb-3 text-muted text-lg">
-                Straightforward pricing designed for the public sector. Start with one agent, or deploy both for maximum impact.
+            <h2 class="pricing-title">Simple, Transparent Pricing</h2>
+            <p class="pricing-subtitle">
+                Straightforward pricing designed for the public sector. Start with one agent, or deploy both for maximum impact. No hidden usage fees.
             </p>
             
-            <div class="ai-grid-2 max-w-900 mx-auto">
+            <div class="pricing-grid">
                 <!-- Resident Service Agent Pricing -->
-                <div class="glass-panel feature-card border-green flex flex-col">
-                    <h3 class="text-primary-dark text-xl mb-1 flex-center gap-0-5 text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                        Resident Service Agent
-                    </h3>
-                    <div class="pricing-price text-center">£350 <span class="ai-pricing-month">/ month</span></div>
-                    <div class="pricing-setup text-center mb-1-5">£7,500 implementation fee</div>
-                    <ul class="feature-list ai-feature-list-border flex-grow-1">
-                        <li>Website-trained AI agent for public queries</li>
-                        <li>24/7 automated intent triage & routing</li>
-                        <li>Monthly KPI dashboard (deflection rates)</li>
-                        <li>GOV.UK content standards & multi-lingual</li>
+                <div class="pricing-card pricing-card-blue flex flex-col">
+                    <div class="pricing-icon-wrap bg-green-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+                    </div>
+                    <h3 class="pricing-tier">Resident Service Agent</h3>
+                    <div class="pricing-amount">
+                        <span class="pricing-curency">£</span>350
+                    </div>
+                    <div class="pricing-period">per month, flat rate</div>
+                    
+                    <div class="pricing-divider"></div>
+                    
+                    <ul class="pricing-feature-list flex-grow-1">
+                        <li>
+                            <svg class="pricing-check pricing-check-green" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Website-trained AI agent for public queries</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check pricing-check-green" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>24/7 automated intent triage & routing</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check pricing-check-green" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Monthly KPI dashboard (deflection rates)</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check pricing-check-green" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>GOV.UK content standards & multi-lingual</span>
+                        </li>
                     </ul>
+                    
+                    <div class="pricing-setup-fee text-center mt-2">
+                        <span class="btn btn-luxury btn-luxury-outline w-full p-1-5 font-semibold border pointer-events-none">£7,500 one-off implementation</span>
+                    </div>
                 </div>
 
                 <!-- Case Acceleration Agent Pricing -->
-                <div class="glass-panel feature-card border-gold flex flex-col">
-                    <h3 class="text-primary-dark text-xl mb-1 flex-center gap-0-5 text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
-                        Officer Case Acceleration Agent
-                    </h3>
-                    <div class="pricing-price text-center">£500 <span class="ai-pricing-month">/ month per service area</span></div>
-                    <div class="pricing-setup text-center mb-1-5">£10,000 - £15,000 implementation fee</div>
-                    <ul class="feature-list ai-feature-list-border flex-grow-1">
-                        <li>Internal Copilot for specific service areas</li>
-                        <li>Email summarisation & fact extraction</li>
-                        <li>Policy-aligned draft responses & notes</li>
-                        <li>DPIA governance wrapper included</li>
+                <div class="pricing-card pricing-card-dark flex flex-col">
+                    <div class="pricing-icon-wrap bg-green-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+                    </div>
+                    <h3 class="pricing-tier">Officer Acceleration Agent</h3>
+                    <div class="pricing-amount">
+                        <span class="pricing-curency">£</span>500
+                    </div>
+                    <div class="pricing-period">per month, per service area</div>
+                    
+                    <div class="pricing-divider"></div>
+                    
+                    <ul class="pricing-feature-list flex-grow-1">
+                        <li>
+                            <svg class="pricing-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Internal Copilot for specific service areas</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Email summarisation & fact extraction</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Policy-aligned draft responses & notes</span>
+                        </li>
+                        <li>
+                            <svg class="pricing-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>DPIA governance wrapper included</span>
+                        </li>
                     </ul>
+                    
+                    <div class="pricing-setup-fee text-center mt-2">
+                        <span class="btn btn-luxury btn-luxury-outline w-full p-1-5 font-semibold bg-cyan-alpha-10 border-cyan-alpha-20 pointer-events-none">£10,000 - £15,000 implementation*</span>
+                    </div>
                 </div>
             </div>
 
-            <p class="ai-pricing-disclaimer text-center mt-2">
-                *Implementation fee varies for the Officer Agent based on the complexity of API backend integrations and the number of service areas covered.
+            <p class="pricing-disclaimer">
+                *Implementation fee varies for the Officer Agent based on the complexity of API backend integrations and the number of service areas covered. No hidden cloud usage or token charges.
             </p>
         </div>
     </section>
 
     <!-- Timeline & Execution -->
-    <section class="services-content-section">
+    <section class="luxury-section border-t-black-alpha-05">
         <div class="container">
-            <h2 class="text-center ai-h2-mb">Implementation Roadmaps</h2>
-            <p class="text-center ai-timeline-intro max-w-800 mx-auto mb-3">We don't do endless strategy phases. We baseline your data, train the model on your rules, and launch quickly to start proving value. Typical implementations look like this:</p>
+            <h2 class="luxury-heading text-center mb-1">Implementation Roadmaps</h2>
+            <p class="luxury-text-large text-center max-w-800 mx-auto mb-5">We don't do endless strategy phases. We baseline your data, train the model on your rules, and launch quickly to start proving value. Typical implementations look like this:</p>
             
-            <div class="ai-grid-2 mb-4">
+            <div class="timeline-grid mb-4 text-left">
                 <!-- Column 1 -->
-                <div>
-                    <h3 class="text-green text-lg mb-1 inline-block border-b-green pb-0-25">Resident Service Agent (4 Weeks)</h3>
-                    <div class="timeline mt-1">
-                        <div class="timeline-step">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 1: Baseline</h4>
-                            <p class="ai-timeline-desc text-sm">Ingesting website pages, PDFs, and service policies into a secure vector database.</p>
+                <div class="timeline-column">
+                    <h3 class="timeline-title">Resident Service Agent <span class="text-teal font-normal text-lg ml-1">(4 Weeks)</span></h3>
+                    <div class="timeline-track">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 1: Baseline</h4>
+                            <p class="timeline-step-desc mb-0">Ingesting website pages, PDFs, and service policies into a secure vector database.</p>
                         </div>
-                        <div class="timeline-step">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 2-3: Tune & Test</h4>
-                            <p class="ai-timeline-desc text-sm">Setting GOV.UK tone of voice, testing edge cases, and logging intent failures.</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 2-3: Tune & Test</h4>
+                            <p class="timeline-step-desc mb-0">Setting GOV.UK tone of voice, testing edge cases, and logging intent failures.</p>
                         </div>
-                        <div class="timeline-step ai-timeline-last">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 4: Launch</h4>
-                            <p class="ai-timeline-desc text-sm">Live on your website. Continuous learning loops refine answers based on analytics.</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 4: Launch</h4>
+                            <p class="timeline-step-desc mb-0">Live on your website. Continuous learning loops refine answers based on analytics.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Column 2 -->
-                <div>
-                    <h3 class="text-gold text-lg mb-1 inline-block border-b-gold pb-0-25">Officer Acceleration Agent (6-8 Weeks)</h3>
-                    <div class="timeline mt-1">
-                        <div class="timeline-step">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 1-2: Discovery & DPIA</h4>
-                            <p class="ai-timeline-desc text-sm">Targeted service selection, capturing baseline metrics, and DPIA risk framing.</p>
+                <div class="timeline-column">
+                    <h3 class="timeline-title">Officer Acceleration Agent <span class="text-teal font-normal text-lg ml-1">(6-8 Weeks)</span></h3>
+                    <div class="timeline-track">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 1-2: Discovery & DPIA</h4>
+                            <p class="timeline-step-desc mb-0">Targeted service selection, capturing baseline metrics, and DPIA risk framing.</p>
                         </div>
-                        <div class="timeline-step">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 3-5: Build & Beta</h4>
-                            <p class="ai-timeline-desc text-sm">Compiling specific back-office knowledge, internal beta testing with officers.</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 3-5: Build & Beta</h4>
+                            <p class="timeline-step-desc mb-0">Compiling specific back-office knowledge, internal beta testing with officers.</p>
                         </div>
-                        <div class="timeline-step ai-timeline-last">
-                            <h4 class="ai-timeline-title text-md mb-0-25">Week 6-8: Integration</h4>
-                            <p class="ai-timeline-desc text-sm">Connecting to legacy back-office systems via APIs for complex workflows.</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="timeline-step-title">Week 6-8: Integration</h4>
+                            <p class="timeline-step-desc mb-0">Connecting to legacy back-office systems via APIs for complex workflows.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- CTA -->
-            <div class="glass-panel ai-contact-panel max-w-800 mx-auto flex flex-col justify-center items-center text-center p-3-2">
-                <h3 class="ai-contact-title mb-1 text-2xl text-primary-dark">Ready to transform your services?</h3>
-                <p class="ai-contact-desc mb-2 text-muted">Book a discovery call to see a live demo of the agent and discuss your target areas.</p>
-                <a href="contact.html" class="btn btn-primary text-md p-1-2-5 text-decoration-none rounded-0-5 font-medium">Contact Us</a>
+            <div class="glass-mockup-light max-w-800 mx-auto text-center mt-5 p-3 rounded-2 shadow-sm border">
+                <h3 class="luxury-heading mb-1 text-3xl">Ready to transform your services?</h3>
+                <p class="text-muted text-lg mb-3">Book a discovery call to see a live demo of the agent and discuss your target areas.</p>
+                <a href="contact.html" class="btn-luxury inline-block w-full" style="max-width: 300px;">Contact Us</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer mt-4">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <!-- Brand Column -->
-                <div class="footer-brand flex flex-col gap-1">
-                    <a href="index.html" class="footer-logo text-2xl font-bold flex-align-center gap-0-5 text-decoration-none text-dark">
-                        Civic <span class="text-teal">Shift &gt;&gt;</span>
-                    </a>
-                    <p class="text-muted text-sm line-height-1-6">
-                        Contract digital transformation and AI implementations for local government. Fixing complex systems and unlocking capacity.
-                    </p>
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span></a>
+                    <p>Contract and interim digital leadership for local government digital transformation and LGR. I unblock teams and get things over the line.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Connect on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Quick Links -->
-                <div class="footer-links flex flex-col gap-1">
-                    <h4 class="text-dark font-semibold text-lg">Navigation</h4>
-                    <ul class="list-none p-0 m-0 flex flex-col gap-0-5">
-                        <li><a href="index.html" class="text-muted text-decoration-none hover-text-primary transition-colors">Home</a></li>
-                        <li><a href="services.html" class="text-muted text-decoration-none hover-text-primary transition-colors">Services</a></li>
-                        <li><a href="ai-agent.html" class="text-muted text-decoration-none hover-text-primary transition-colors">AI Agents</a></li>
-                        <li><a href="success_stories.html" class="text-muted text-decoration-none hover-text-primary transition-colors">Success Stories</a></li>
-                        <li><a href="estimator.html" class="text-muted text-decoration-none hover-text-primary transition-colors">Rate Card</a></li>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="ai-agent.html">AI Agents</a></li>
+                        <li><a href="success_stories.html">Success Stories</a></li>
+                        <li><a href="blog.html">Insights</a></li>
+                        <li><a href="estimator.html">Rate Card</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact/Action -->
-                <div class="footer-contact flex flex-col gap-1">
-                    <h4 class="text-dark font-semibold text-lg">Get in Touch</h4>
-                    <p class="footer-cta-text text-muted text-sm">Need to explore AI containment?</p>
-                    <a href="contact.html" class="btn btn-primary btn-small text-center max-w-fit">Check Availability</a>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p class="footer-cta-text">Need to stabilise a programme fast?</p>
+                    <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
                 </div>
             </div>
             
-            <div class="footer-bottom mt-3 pt-2 border-t-black-alpha-05 text-center text-muted text-sm">
+            <div class="footer-bottom">
                 <p>&copy; 2026 Civic Shift. All rights reserved.</p>
             </div>
         </div>
@@ -822,6 +566,7 @@
     <!-- Independent Calculator Logic -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const PRODUCTIVITY_GAIN = 0.30;
             
             const formatGbp = (num) => {
                 return new Intl.NumberFormat("en-GB", {
@@ -864,11 +609,11 @@
                     if(calc1.outputs.savings) calc1.outputs.savings.textContent = formatGbp(savings);
                     if(calc1.outputs.net) {
                         calc1.outputs.net.textContent = formatGbp(net1Yr);
-                        calc1.outputs.net.style.color = (net1Yr < 0) ? "#ef4444" : "var(--accent-green)";
+                        calc1.outputs.net.style.color = (net1Yr < 0) ? "#ef4444" : "#10b981";
                     }
                     if(calc1.outputs.net3) {
                         calc1.outputs.net3.textContent = formatGbp(net3Yr);
-                        calc1.outputs.net3.style.color = (net3Yr < 0) ? "#ef4444" : "var(--accent-green)";
+                        calc1.outputs.net3.style.color = (net3Yr < 0) ? "#ef4444" : "#10b981";
                     }
                 }
             };
@@ -912,11 +657,11 @@
                     if(calc2.outputs.capacity) calc2.outputs.capacity.textContent = formatGbp(capacityValue);
                     if(calc2.outputs.net) {
                         calc2.outputs.net.textContent = formatGbp(net1Yr);
-                        calc2.outputs.net.style.color = (net1Yr < 0) ? "#ef4444" : "var(--accent-gold)";
+                        calc2.outputs.net.style.color = (net1Yr < 0) ? "#ef4444" : "#10b981";
                     }
                     if(calc2.outputs.net3) {
-                        calc2.outputs.net3.textContent = formatGbp(net3);
-                        calc2.outputs.net3.style.color = (net3 < 0) ? "#ef4444" : "var(--accent-gold)";
+                        calc2.outputs.net3.textContent = formatGbp(net3Yr);
+                        calc2.outputs.net3.style.color = (net3Yr < 0) ? "#ef4444" : "#10b981";
                     }
                 }
             };
