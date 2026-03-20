@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggle.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
             toggle.classList.toggle('active');
+            document.body.classList.toggle('nav-open', navLinks.classList.contains('active'));
         });
     }
 

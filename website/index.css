@@ -271,11 +271,13 @@ nav.glass-panel {
   box-shadow: 0 4px 20px rgba(0,229,255,0.3);
   font-weight: 700;
 }
-.btn-primary:hover {
-  background: #00f0ff;
-  border-color: #00f0ff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,229,255,0.4);
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: #00f0ff;
+    border-color: #00f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.4);
+  }
 }
 .btn-primary:active { transform: translateY(0); }
 
@@ -284,10 +286,12 @@ nav.glass-panel {
   border-color: var(--navy-deep);
   color: var(--navy-deep);
 }
-.btn-secondary:hover {
-  background: var(--navy-deep);
-  color: var(--text-light);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .btn-secondary:hover {
+    background: var(--navy-deep);
+    color: var(--text-light);
+    transform: translateY(-2px);
+  }
 }
 
 /* On dark backgrounds */
@@ -336,10 +340,12 @@ nav.glass-panel {
   box-shadow: var(--shadow-card);
   transition: var(--transition-smooth);
 }
-.glass-panel:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: rgba(0,229,255,0.35);
+@media (hover: hover) {
+  .glass-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(0, 229, 255, 0.35);
+  }
 }
 
 /* ── Forms ───────────────────────────────────────────────── */
@@ -547,11 +553,12 @@ footer a:hover { color: var(--cyan); }
 
 /* Stat counters row */
 .hero-stats {
-  display: flex;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   margin-top: 3rem;
   padding-top: 2.5rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .hero-stat-value {
   font-size: 2rem;
@@ -681,10 +688,12 @@ footer a:hover { color: var(--cyan); }
 .value-card.teal-border, .value-card.gold-border, .value-card.dark-border {
   border-left: none;
 }
-.value-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: rgba(0,229,255,0.2);
+@media (hover: hover) {
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(0, 229, 255, 0.2);
+  }
 }
 .value-title { color: var(--navy-deep); font-size: 1.35rem; margin-bottom: 1rem; font-weight: 700; }
 .value-card p { color: var(--text-body); line-height: 1.7; }
@@ -708,10 +717,12 @@ footer a:hover { color: var(--cyan); }
   border: 1px solid rgba(10,31,63,0.06);
   transition: var(--transition-smooth);
 }
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: rgba(0,229,255,0.3);
+@media (hover: hover) {
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(0, 229, 255, 0.3);
+  }
 }
 .service-icon {
   width: 56px; height: 56px;
@@ -1147,4 +1158,156 @@ tr:hover td { background: rgba(0,229,255,0.03); }
 @media (max-width: 900px) {
   .values-grid { grid-template-columns: 1fr !important; }
   .why-me-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Civic Shift Mobile & Layout Improvements */
+/* ────────────────────────────────────────────────────────── */
+
+/* Improvement 9 — Reserve space for the hero image (prevent layout shift) */
+.hero-image {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Improvement 6 — Minimum tap target sizes */
+.mobile-nav-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  /* Improvement 1 — Full-screen mobile nav overlay */
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 23, 46, 0.98);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 999;
+    padding: 2rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .nav-links a:hover {
+    color: var(--cyan);
+  }
+
+  /* Prevent background scroll when nav is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* Improvement 3 — Hero image appears first on mobile */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-grid > div:last-child {
+    order: -1;
+  }
+
+  /* Improvement 4 — Fix overridden section padding on mobile */
+  .values-section {
+    padding: 4rem 1.5rem !important;
+  }
+
+  .about-info-panel {
+    padding: 1.5rem !important;
+  }
+
+  .about-content-section {
+    padding: 3rem 1.5rem;
+  }
+
+  /* Improvement 6 — Minimum tap targets (footer/nav) */
+  .footer-links a,
+  .footer-contact a,
+  .nav-links a {
+    padding: 0.5rem 0;
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+  }
+
+  /* Improvement 7 — Quote font size on mobile */
+  .quote-text {
+    font-size: 1.3rem !important;
+    line-height: 1.5;
+  }
+
+  /* Improvement 8 — Footer: complete the centre-alignment on mobile */
+  .footer-links {
+    text-align: center;
+  }
+
+  .footer-links ul {
+    align-items: center;
+  }
+
+  .footer-contact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-contact .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Improvement 2 — Full-width hero buttons on small screens */
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Improvement 5 — Hero stats mobile refinement */
+  .hero-stats {
+    gap: 1rem;
+  }
+
+  .hero-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* Improvement 7 — Quote font size on mobile */
+  .quote-text {
+    font-size: 1.15rem !important;
+  }
 }
