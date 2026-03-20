@@ -38,36 +38,16 @@
       "@type": "ProfessionalService",
       "name": "Civic Shift",
       "url": "https://civicshift.netlify.app",
-      "description": "Senior contract consultant specialising in local government digital transformation, service redesign and Local Government Reorganisation (LGR) digital readiness. Available for contract and interim roles across UK councils.",
-      "areaServed": {
-        "@type": "Country",
-        "name": "United Kingdom"
-      },
-      "serviceType": [
-        "Local Government Digital Transformation",
-        "Programme Recovery",
-        "Interim Digital Leadership",
-        "CRM Implementation",
-        "Service Redesign",
-        "Local Government Reorganisation Digital Support"
-      ],
-      "knowsAbout": [
-        "Local Government Digital Services",
-        "Digital Transformation Consultancy",
-        "Local Government Reorganisation (LGR)",
-        "Service Redesign",
-        "CRM Delivery",
-        "Public Sector Programme Management"
-      ],
-      "sameAs": []
+      "description": "Senior contract consultant specialising in local government digital transformation, service redesign and Local Government Reorganisation (LGR) digital readiness.",
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "serviceType": ["Local Government Digital Transformation","Programme Recovery","Interim Digital Leadership","CRM Implementation","Service Redesign","Local Government Reorganisation Digital Support"]
     }
     </script>
 
-
-    <!-- Fonts -->
+    <!-- Fonts — full Inter weight range -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
@@ -78,22 +58,21 @@
 <body>
 
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav class="glass-panel site-nav">
         <a href="index.html" class="nav-logo-text">
-            Civic <span class="text-teal">Shift >></span>
+            Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span>
         </a>
         <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
             <span class="mobile-hamburger"></span>
         </button>
-        <div class="nav-links">
+        <div class="nav-links" id="primary-navigation">
             <a href="index.html" class="text-teal font-semibold">Home</a>
-            <a href="services.html" class="hover:text-teal">Services</a>
-            <a href="ai-agent.html" class="hover:text-teal">AI Agents</a>
-            <a href="success_stories.html" class="hover:text-teal">Success Stories</a>
-            <a href="blog.html" class="hover:text-teal">Insights</a>
-            <a href="estimator.html" class="hover:text-teal">Rates</a>
-            <a href="contact.html" class="btn btn-primary">Contact Me</a>
+            <a href="services.html">Services</a>
+            <a href="ai-agent.html">AI Agents</a>
+            <a href="success_stories.html">Success Stories</a>
+            <a href="blog.html">Insights</a>
+            <a href="estimator.html">Rates</a>
+            <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
         </div>
     </nav>
 
@@ -112,7 +91,21 @@
                 </p>
                 <div class="hero-actions">
                     <a href="contact.html" class="btn btn-primary">Check Availability</a>
-                    <a href="services.html" class="btn btn-secondary">My Services</a>
+                    <a href="services.html" class="btn btn-primary">My Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <span class="hero-stat-value">10+</span>
+                        <span class="hero-stat-label">Years experience</span>
+                    </div>
+                    <div>
+                        <span class="hero-stat-value">50+</span>
+                        <span class="hero-stat-label">Engagements delivered</span>
+                    </div>
+                    <div>
+                        <span class="hero-stat-value">UK-wide</span>
+                        <span class="hero-stat-label">Remote &amp; on-site</span>
+                    </div>
                 </div>
             </div>
             <div class="animate-fade-up delay-200">
@@ -121,17 +114,16 @@
         </div>
     </header>
 
-    <!-- About Section (Migrated) -->
-    <!-- About Section (Migrated) -->
+    <!-- About Section -->
     <section id="about" class="about-content-section bg-light">
         <div class="container about-content-grid">
-            <div>
+            <div class="scroll-reveal">
                 <h2>Who I Am</h2>
                 <p>
-                    I’m <strong>Adam</strong>, a senior digital transformation and delivery consultant with deep experience in public services, customer operations and large-scale digital programmes.
+                    I'm <strong>Adam</strong>, a senior digital transformation and delivery consultant with deep experience in public services, customer operations and large-scale digital programmes.
                 </p>
                 <p>
-                    I thrive in environments that are complex, political or blocked. I don’t sit on the sidelines offering advice. I work directly with teams to unblock delivery and move things forward.
+                    I thrive in environments that are complex, political or blocked. I don't sit on the sidelines offering advice. I work directly with teams to unblock delivery and move things forward.
                 </p>
 
                 <h3 class="about-approach-title">My Approach</h3>
@@ -139,15 +131,15 @@
                     I lead by doing, not directing. I build trust quickly by listening, working alongside teams and making problems smaller. I keep things moving, keep people informed and focus on delivering what matters, even when things are messy.
                 </p>
             </div>
-            <div class="glass-panel about-info-panel">
+            <div class="glass-panel about-info-panel scroll-reveal sr-delay-2">
                 <h3>How I Work (Why Contract Works)</h3>
                 <p>I slot in quickly, get up to speed fast and start adding value from week one. Clients bring me in when they need to:</p>
                 <ul>
-                    <li><span class="text-teal">➔</span> Fill a senior delivery gap</li>
-                    <li><span class="text-teal">➔</span> Stabilise or reset a struggling programme</li>
-                    <li><span class="text-teal">➔</span> Accelerate CRM or customer transformation</li>
-                    <li><span class="text-teal">➔</span> Bring pace and structure without adding bureaucracy</li>
-                    <li><span class="text-teal">➔</span> Add experienced leadership without increasing headcount</li>
+                    <li><span class="text-teal">&#10132;</span> Fill a senior delivery gap</li>
+                    <li><span class="text-teal">&#10132;</span> Stabilise or reset a struggling programme</li>
+                    <li><span class="text-teal">&#10132;</span> Accelerate CRM or customer transformation</li>
+                    <li><span class="text-teal">&#10132;</span> Bring pace and structure without adding bureaucracy</li>
+                    <li><span class="text-teal">&#10132;</span> Add experienced leadership without increasing headcount</li>
                 </ul>
             </div>
         </div>
@@ -157,54 +149,42 @@
     <section class="bg-contrast section-padding">
         <div class="container">
            <div class="why-me-grid">
-               <div>
+               <div class="scroll-reveal">
                    <h2 class="why-me-title">Why Clients Choose Me</h2>
                    <ul class="why-me-list">
-                       <li class="why-me-item">
-                           <span class="text-teal check-icon">✔</span> I start quickly and need minimal onboarding
-                       </li>
-                       <li class="why-me-item">
-                           <span class="text-teal check-icon">✔</span> I speak in plain terms, not jargon
-                       </li>
-                       <li class="why-me-item">
-                           <span class="text-teal check-icon">✔</span> I am comfortable operating at senior level
-                       </li>
-                       <li class="why-me-item">
-                           <span class="text-teal check-icon">✔</span> I balance delivery, governance and people impact
-                       </li>
-                       <li class="why-me-item">
-                           <span class="text-teal check-icon">✔</span> I do not disappear when things get difficult
-                       </li>
+                       <li class="why-me-item"><span class="text-teal check-icon">&#10003;</span> I start quickly and need minimal onboarding</li>
+                       <li class="why-me-item"><span class="text-teal check-icon">&#10003;</span> I speak in plain terms, not jargon</li>
+                       <li class="why-me-item"><span class="text-teal check-icon">&#10003;</span> I am comfortable operating at senior level</li>
+                       <li class="why-me-item"><span class="text-teal check-icon">&#10003;</span> I balance delivery, governance and people impact</li>
+                       <li class="why-me-item"><span class="text-teal check-icon">&#10003;</span> I do not disappear when things get difficult</li>
                    </ul>
                </div>
 
-               <div class="quote-box">
+               <div class="quote-box scroll-reveal sr-delay-2">
                    <p class="quote-text">
-                       "Think: delivery focused, calm under pressure, allergic to fluff."
+                       &ldquo;Delivery focused, calm under pressure, <em>allergic to fluff</em>.&rdquo;
                    </p>
                </div>
            </div>
         </div>
     </section>
 
-
-
     <!-- Key Values -->
     <section class="section-padding values-section">
         <div class="container">
             <div class="values-grid">
                 
-                <div class="glass-panel value-card teal-border">
+                <div class="glass-panel value-card teal-border scroll-reveal sr-delay-1">
                     <h3 class="value-title">Short Term Contracts</h3>
                     <p>Flexible engagement designed for impact. I step in, get up to speed and deliver.</p>
                 </div>
 
-                <div class="glass-panel value-card gold-border">
+                <div class="glass-panel value-card gold-border scroll-reveal sr-delay-2">
                     <h3 class="value-title">Long Term Impact</h3>
                     <p>I do not just patch problems. I leave behind structured processes, cleaner data and capable teams.</p>
                 </div>
 
-                <div class="glass-panel value-card dark-border">
+                <div class="glass-panel value-card dark-border scroll-reveal sr-delay-3">
                     <h3 class="value-title">Zero Nonsense</h3>
                     <p>No fluff. No endless strategy decks. Just practical, delivery focused leadership that gets results.</p>
                 </div>
@@ -216,13 +196,13 @@
     <!-- LGR Section -->
     <section class="section-padding bg-light">
         <div class="container">
-            <div class="why-me-grid">
-                <div>
+            <div class="why-me-grid lgr-grid-wrapper">
+                <div class="scroll-reveal">
                     <h2>Supporting Local Government Reorganisation</h2>
-                    <p>
+                    <p class="lgr-body-text">
                         Local Government Reorganisation (LGR) is one of the most complex and time-pressured digital challenges facing councils today. Merging systems, data, teams and services across multiple authorities requires experienced, calm leadership — at pace.
                     </p>
-                    <p>
+                    <p class="lgr-body-text lgr-body-text--last">
                         I work with district, borough and county councils to plan and deliver the digital elements of LGR: from data migration and CRM consolidation to operating model redesign and staff capability building. I bring the hands-on delivery experience to get it done.
                     </p>
                     <div class="hero-actions lgr-cta-actions">
@@ -230,15 +210,15 @@
                         <a href="services.html" class="btn btn-secondary">View All Services</a>
                     </div>
                 </div>
-                <div class="glass-panel about-info-panel">
+                <div class="glass-panel about-info-panel scroll-reveal sr-delay-2">
                     <h3>What I Can Help With</h3>
                     <ul>
-                        <li><span class="text-teal">➔</span> Digital readiness assessments for LGR</li>
-                        <li><span class="text-teal">➔</span> CRM and systems consolidation across councils</li>
-                        <li><span class="text-teal">➔</span> Data migration strategy and oversight</li>
-                        <li><span class="text-teal">➔</span> Interim digital leadership during transition</li>
-                        <li><span class="text-teal">➔</span> Service redesign for the new unitary authority</li>
-                        <li><span class="text-teal">➔</span> Staff and team digital capability building</li>
+                        <li><span class="text-teal">&#10132;</span> Digital readiness assessments for LGR</li>
+                        <li><span class="text-teal">&#10132;</span> CRM and systems consolidation across councils</li>
+                        <li><span class="text-teal">&#10132;</span> Data migration strategy and oversight</li>
+                        <li><span class="text-teal">&#10132;</span> Interim digital leadership during transition</li>
+                        <li><span class="text-teal">&#10132;</span> Service redesign for the new unitary authority</li>
+                        <li><span class="text-teal">&#10132;</span> Staff and team digital capability building</li>
                     </ul>
                 </div>
             </div>
@@ -246,22 +226,17 @@
     </section>
 
     <!-- Footer -->
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <!-- Brand Column -->
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift >></span></a>
+                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span></a>
                     <p>Contract and interim digital leadership for local government digital transformation and LGR. I unblock teams and get things over the line.</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Connect on LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                             LinkedIn
-                        </a>
-                        <a href="https://www.instagram.com/YOUR-INSTAGRAM-HANDLE" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Follow on Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                            Instagram
                         </a>
                     </div>
                 </div>
@@ -274,7 +249,7 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="ai-agent.html">AI Agents</a></li>
                         <li><a href="success_stories.html">Success Stories</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html">Insights</a></li>
                         <li><a href="estimator.html">Rate Card</a></li>
                     </ul>
                 </div>
@@ -283,7 +258,7 @@
                 <div class="footer-contact">
                     <h4>Get in Touch</h4>
                     <p class="footer-cta-text">Need to stabilise a programme fast?</p>
-                    <a href="contact.html" class="btn btn-primary">Check Availability</a>
+                    <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
                 </div>
             </div>
             
