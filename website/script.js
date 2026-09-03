@@ -130,3 +130,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// ── Dark Mode Toggle ──────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const iconMoon = themeToggle.querySelector('.icon-moon');
+        const iconSun = themeToggle.querySelector('.icon-sun');
+
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if(iconMoon && iconSun) {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'block';
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                if(iconMoon && iconSun) {
+                    iconMoon.style.display = 'block';
+                    iconSun.style.display = 'none';
+                }
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if(iconMoon && iconSun) {
+                    iconMoon.style.display = 'none';
+                    iconSun.style.display = 'block';
+                }
+            }
+        });
+    }
+});
