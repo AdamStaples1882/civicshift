@@ -1401,3 +1401,84 @@ tr:hover td { background: rgba(0,229,255,0.03); }
         color: #000 !important;
     }
 }
+
+/* ── High-End Navigation Additions ────────────────────── */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 1rem;
+}
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-body);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.8rem;
+    background: rgba(10,31,63,0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(10,31,63,0.06);
+}
+[data-theme="dark"] .status-indicator {
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
+}
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    position: relative;
+}
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid rgba(16,185,129,0.5);
+    border-radius: 50%;
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes pulse-ring {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.theme-toggle {
+    color: var(--text-body);
+}
+[data-theme="dark"] .theme-toggle {
+    color: var(--text-primary);
+}
+
+.btn-nav {
+    padding: 0.6rem 1.5rem;
+    background: var(--navy-deep);
+    color: var(--white);
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.btn-nav:hover {
+    background: transparent;
+    color: var(--navy-deep);
+    border-color: var(--navy-deep);
+}
+[data-theme="dark"] .btn-nav {
+    background: var(--cyan);
+    color: var(--bg-dark);
+}
+[data-theme="dark"] .btn-nav:hover {
+    background: transparent;
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
