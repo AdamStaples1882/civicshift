@@ -1,7 +1,7 @@
-// ── Civic Shift — Premium Site JS ────────────────────────────
+﻿// â”€â”€ Civic Shift â€” Premium Site JS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function initWebsite() {
-    // ── Scroll-reveal (IntersectionObserver) ──────────────────
+    // â”€â”€ Scroll-reveal (IntersectionObserver) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -30,7 +30,7 @@ function initWebsite() {
         legacyObs.observe(el);
     });
 
-    // ── Nav scroll-state toggle ───────────────────────────────
+    // â”€â”€ Nav scroll-state toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const nav = document.querySelector('.site-nav');
     if (nav) {
         const onScroll = () => {
@@ -44,7 +44,7 @@ function initWebsite() {
         onScroll(); // run once on load
     }
 
-    // ── Estimator ─────────────────────────────────────────────
+    // â”€â”€ Estimator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     initEstimator();
 }
 
@@ -91,14 +91,14 @@ function initEstimator() {
     if (calculateBtn) calculateBtn.addEventListener('click', (e) => { e.preventDefault(); calculateEstimate(); });
 }
 
-// ── DOM Ready ─────────────────────────────────────────────────
+// â”€â”€ DOM Ready â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initWebsite);
 } else {
     initWebsite();
 }
 
-// ── Mobile Navigation ─────────────────────────────────────────
+// â”€â”€ Mobile Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 document.addEventListener('DOMContentLoaded', () => {
     const toggle   = document.querySelector('.mobile-nav-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── FAQ Accordion ─────────────────────────────────────────
+    // â”€â”€ FAQ Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {
             const isExpanded = btn.getAttribute('aria-expanded') === 'true';
@@ -128,3 +128,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+

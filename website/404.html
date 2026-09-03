@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Civic Shift</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+    <style>
+        .error-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--section-padding);
+        }
+        .error-title {
+            font-size: 5rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+        .error-subtitle {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="glass-panel site-nav">
+        <a href="index.html" class="nav-logo-text">Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span></a>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu"><span class="mobile-hamburger"></span></button>
+        <div class="nav-links" id="primary-navigation">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="estimator.html">Rates</a>
+            <span class="availability-badge" title="Currently booking for Q1">🟢 Available Q1</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+            <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
+        </div>
+    </nav>
+
+    <main class="error-section">
+        <div class="container animate-fade-up">
+            <h1 class="error-title">404</h1>
+            <h2 class="error-subtitle">Page Not Found</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-body);">It looks like the page you are looking for doesn't exist, was moved, or you followed a broken link.</p>
+            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1311,3 +1311,93 @@ tr:hover td { background: rgba(0,229,255,0.03); }
     font-size: 1.15rem !important;
   }
 }
+
+/* ── Accessibility & ARIA Overrides ─────────────────────── */
+.mobile-nav-toggle:focus { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.theme-toggle:focus { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+/* ── Availability Badge & Theme Toggle ──────────────────── */
+.availability-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    cursor: default;
+}
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover {
+    background: rgba(10,31,63,0.05);
+}
+
+/* ── Dark Mode Variables ─────────────────────────────────── */
+[data-theme="dark"] {
+    --bg-white: #0A1F3F;
+    --bg-light: #07172E;
+    --bg-section-alt: #0D2B52;
+    --text-primary: #F8FAFC;
+    --text-body: #94A3B8;
+    --text-muted: #64748B;
+    --shadow-card: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-card-hover: 0 8px 24px rgba(0, 229, 255, 0.15);
+}
+[data-theme="dark"] .glass-panel {
+    background: rgba(13, 43, 82, 0.6);
+    border-color: rgba(255,255,255,0.05);
+}
+[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(255,255,255,0.1);
+}
+[data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select {
+    background: #0D2B52;
+    border-color: #1a3660;
+    color: #F8FAFC;
+}
+
+/* ── Print Stylesheet ────────────────────────────────────── */
+@media print {
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
+    }
+    .site-nav, .site-footer, .hero-actions, .mobile-nav-toggle, .theme-toggle {
+        display: none !important;
+    }
+    .container {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .glass-panel, .rate-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        color: #000 !important;
+    }
+    .rate-card-price-value {
+        color: #000 !important;
+    }
+}
