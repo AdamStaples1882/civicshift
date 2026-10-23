@@ -1582,3 +1582,89 @@ tr:hover td { background: rgba(0,229,255,0.03); }
     padding: 6px;
   }
 }
+
+/* ── Service 4-Level Engagement Grid ─────────────────────── */
+.service-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+.tier-item {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(10, 31, 63, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+[data-theme="dark"] .tier-item {
+  background: rgba(13, 43, 82, 0.5);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+.tier-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+.tier-item-bronze { border-top: 3px solid #D97706; }
+.tier-item-silver { border-top: 3px solid #64748B; }
+.tier-item-gold { border-top: 3px solid var(--gold); }
+.tier-item-platinum { 
+  border-top: 3px solid var(--cyan);
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.03) 0%, rgba(10, 31, 63, 0.02) 100%);
+}
+[data-theme="dark"] .tier-item-platinum {
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.08) 0%, rgba(13, 43, 82, 0.6) 100%);
+}
+.tier-badge-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.color-bronze { color: #B45309; }
+.color-silver { color: #475569; }
+[data-theme="dark"] .color-silver { color: #94A3B8; }
+.color-gold { color: #D97706; }
+.color-platinum { color: var(--cyan); font-weight: 800; }
+
+.tier-title-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+[data-theme="dark"] .tier-title-text { color: var(--text-light); }
+
+.tier-desc-text {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+[data-theme="dark"] .tier-desc-text { color: #cbd5e1; }
+
+.tier-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-body);
+}
+[data-theme="dark"] .tier-bullets { color: #cbd5e1; }
+.tier-bullets li {
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.4;
+}
+.tier-bullets li span {
+  color: var(--cyan);
+  font-weight: bold;
+}
