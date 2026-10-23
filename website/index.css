@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    CIVIC SHIFT — PREMIUM DESIGN SYSTEM
    Palette: Deep Navy #0A1F3F | Charcoal #121212 | Cyan #00E5FF
    Typography: Inter (300–800)
@@ -548,7 +548,12 @@ footer a:hover { color: var(--cyan); }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero-image {
   border-radius: var(--radius-xl);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,255,0.1);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,255,0.15);
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Stat counters row */
@@ -1166,11 +1171,13 @@ tr:hover td { background: rgba(0,229,255,0.03); }
 
 /* Improvement 9 — Reserve space for the hero image (prevent layout shift) */
 .hero-image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   width: 100%;
+  max-width: 520px;
   height: auto;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Improvement 6 — Minimum tap target sizes */
@@ -1482,3 +1489,5 @@ tr:hover td { background: rgba(0,229,255,0.03); }
     color: var(--cyan);
     border-color: var(--cyan);
 }
+
+

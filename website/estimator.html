@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contract Day Rates – Local Government Digital Consultant | Civic Shift</title>
-    <meta name="description" content="Indicative day rates for senior local government digital transformation consultancy — programme management, interim leadership, LGR digital support and CRM delivery.">
-    <meta name="keywords" content="local government digital consultant day rate, council digital transformation rates, interim digital leadership rate, LGR digital support cost, public sector contract rates">
+    <title>Service Packages & Pricing | Local Government Consultancy | Civic Shift</title>
+    <meta name="description" content="Transparent consultancy packages for UK local government: Bronze, Silver, Gold, and Platinum. From targeted architecture reviews to complete transformation problem ownership.">
+    <meta name="keywords" content="local government consultancy pricing, enterprise architecture packages, TOGAF SPARX EA cost, LGR consultancy packages, council digital transformation pricing, public sector consultancy packages">
+    
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://civicshift.netlify.app/estimator.html">
-    <meta property="og:title" content="Contract Day Rates – Local Government Digital Consultant | Civic Shift">
-    <meta property="og:description" content="Indicative day rates for senior local government digital transformation consultancy — programme management, interim leadership, LGR digital support and CRM delivery.">
+    <meta property="og:title" content="Service Packages & Pricing | Civic Shift Consulting">
+    <meta property="og:description" content="Transparent consultancy packages for UK local government: Bronze, Silver, Gold, and Platinum. From targeted architecture reviews to complete transformation problem ownership.">
     <meta property="og:image" content="https://civicshift.netlify.app/images/hero.png">
     <link rel="canonical" href="https://civicshift.netlify.app/estimator.html">
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -20,269 +21,440 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="estimator-styles.css">
     <script src="script.js" defer></script>
+    <style>
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2.5rem;
+        }
+        .package-card {
+            border-radius: var(--radius-lg);
+            padding: 2.25rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(10, 31, 63, 0.08);
+            box-shadow: var(--shadow-card);
+        }
+        [data-theme="dark"] .package-card {
+            background: rgba(13, 43, 82, 0.6);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        .package-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+        .badge-bronze { background: #FDE8D7; color: #934C18; border: 1px solid #F5C6A0; }
+        .badge-silver { background: #E2E8F0; color: #334155; border: 1px solid #CBD5E1; }
+        .badge-gold { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+        .badge-platinum { 
+            background: linear-gradient(135deg, #0A1F3F 0%, #00E5FF 100%); 
+            color: #FFFFFF; 
+            box-shadow: 0 4px 14px rgba(0, 229, 255, 0.3);
+        }
+        .package-platinum-card {
+            border: 2px solid var(--cyan) !important;
+            background: linear-gradient(180deg, rgba(10,31,63,0.03) 0%, rgba(0,229,255,0.04) 100%) !important;
+        }
+        [data-theme="dark"] .package-platinum-card {
+            background: linear-gradient(180deg, rgba(13,43,82,0.8) 0%, rgba(7,23,46,0.9) 100%) !important;
+            border-color: var(--cyan) !important;
+        }
+        .package-days {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 0.5rem;
+        }
+        .package-price {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+        [data-theme="dark"] .package-price { color: var(--text-light); }
+        .package-price-sub {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -0.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-body);
+            flex-grow: 1;
+        }
+        [data-theme="dark"] .package-features { color: #cbd5e1; }
+        .package-features li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+        .package-features li span {
+            color: var(--cyan);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 3rem;
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(10,31,63,0.08);
+            box-shadow: var(--shadow-card);
+        }
+        [data-theme="dark"] .comparison-table-wrapper {
+            background: rgba(13,43,82,0.5);
+            border-color: rgba(255,255,255,0.08);
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.92rem;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid rgba(10,31,63,0.06);
+        }
+        [data-theme="dark"] .comparison-table th, [data-theme="dark"] .comparison-table td {
+            border-bottom-color: rgba(255,255,255,0.06);
+        }
+        .comparison-table th {
+            background: rgba(10,31,63,0.03);
+            font-weight: 700;
+            color: var(--navy-deep);
+        }
+        [data-theme="dark"] .comparison-table th {
+            background: rgba(255,255,255,0.02);
+            color: var(--text-light);
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav class="glass-panel site-nav">
         <a href="index.html" class="nav-logo-text">
-            Civic <span class="text-teal">Shift >></span>
+            Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span>
         </a>
         <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
             <span class="mobile-hamburger"></span>
         </button>
-        <div class="nav-links">
-            <a href="index.html" class="hover:text-teal">Home</a>
-            <a href="services.html" class="hover:text-teal">Services</a>
-            <a href="ai-agent.html" class="hover:text-teal">AI Agents</a>
-            <a href="success_stories.html" class="hover:text-teal">Success Stories</a>
-            <a href="blog.html" class="hover:text-teal">Insights</a>
-            <a href="estimator.html" class="text-teal font-semibold">Rates</a>
+        <div class="nav-links" id="primary-navigation">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="ai-agent.html">AI Agents</a>
+            <a href="success_stories.html">Case Studies</a>
+            <a href="blog.html">Insights</a>
+            <a href="estimator.html" class="text-teal active-link font-semibold">Packages &amp; Pricing</a>
             <div class="nav-actions">
-            <span class="status-indicator"><span class="pulse-dot"></span> Available Q1</span>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-            <a href="contact.html" class="btn btn-nav">Let's Talk</a>
-        </div>
+                <span class="status-indicator"><span class="pulse-dot"></span> Practice Active Q1</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <a href="contact.html" class="btn btn-nav">Commission Us</a>
+            </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <!-- Header -->
-    <header class="bg-dark estimator-header-bg">
-        <div class="container animate-fade-up">
-            <h1 class="estimator-header-title">Digital Consultant Day Rates</h1>
-            <p class="estimator-header-subtitle">
-                Transparent pricing for senior, hands-on delivery. Final pricing depends on scope, duration, and complexity.
+    <header class="bg-dark estimator-header-bg" style="padding: 7rem 2rem 4rem;">
+        <div class="container animate-fade-up text-center">
+            <span class="hero-subtitle">PUBLIC SECTOR ENGAGEMENT TIERS</span>
+            <h1 class="estimator-header-title" style="font-size: 2.8rem; margin: 0.5rem 0 1rem;">Consultancy Service Packages</h1>
+            <p class="estimator-header-subtitle" style="max-width: 780px; margin: 0 auto; font-size: 1.15rem; line-height: 1.6; color: var(--text-muted);">
+                Transparent, outcome-focused consultancy models designed for UK local authorities. From targeted 5-day architecture reviews up to complete end-to-end problem ownership.
             </p>
         </div>
     </header>
 
-
-
-    <!-- Rate Cards -->
-    <section class="rate-cards-section">
+    <!-- Service Packages Section (Bronze, Silver, Gold, Platinum) -->
+    <section class="section-padding bg-light">
         <div class="container">
-            <h2 class="rate-cards-title">Detailed Rate Cards</h2>
-            <p class="rate-cards-intro">
-                Indicative day rates and what's typically included in each service area:
-            </p>
-            <div class="values-grid">
+            <div class="packages-grid">
 
-                <!-- Card 1: Interim Leadership -->
-                <div class="glass-panel rate-card border-top-gold">
-                    <h3>Interim Leadership</h3>
-                    <p class="rate-card-subtitle">Senior accountability</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£850–1,000</span> <span class="rate-card-unit">/ day</span>
+                <!-- BRONZE PACKAGE -->
+                <div class="package-card scroll-reveal sr-delay-1">
+                    <div>
+                        <span class="package-badge badge-bronze">Bronze Package</span>
+                        <h3 style="font-size: 1.4rem; color: var(--navy-deep); margin-bottom: 0.25rem;">Advisory Diagnostic</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 1rem;">Targeted architecture audit &amp; readiness sprint</p>
+                        <div class="package-days">5 – 10 Consulting Days</div>
+                        <div class="package-price">£5,500 – £8,500</div>
+                        <span class="package-price-sub">Fixed-scope sprint / G-Cloud compliant</span>
+                        <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: 1rem 0;">
+                        <ul class="package-features">
+                            <li><span>&#10003;</span> Current-state EA &amp; technology debt audit</li>
+                            <li><span>&#10003;</span> High-level TOGAF application mapping</li>
+                            <li><span>&#10003;</span> M365 licensing &amp; Power Apps readiness review</li>
+                            <li><span>&#10003;</span> LGR digital risks &amp; dependencies matrix</li>
+                            <li><span>&#10003;</span> Executive Findings Briefing for CDIO / S151</li>
+                        </ul>
                     </div>
-                    <ul class="rate-card-list">
-                        <li>Calm, decisive leadership</li>
-                        <li>Board-level reporting and communication</li>
-                        <li>Rapid assimilation into leadership teams</li>
-                        <li>Focus on outcomes, not just oversight</li>
-                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="contact.html?package=bronze" class="btn btn-secondary" style="width: 100%; text-align: center;">Book Bronze Sprint</a>
+                    </div>
                 </div>
 
-                <!-- Card 2: Programme Management -->
-                <div class="glass-panel rate-card border-top-teal">
-                    <h3>Programme Management</h3>
-                    <p class="rate-card-subtitle">End-to-end programme oversight</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£750–900</span> <span class="rate-card-unit">/ day</span>
+                <!-- SILVER PACKAGE -->
+                <div class="package-card scroll-reveal sr-delay-2">
+                    <div>
+                        <span class="package-badge badge-silver">Silver Package</span>
+                        <h3 style="font-size: 1.4rem; color: var(--navy-deep); margin-bottom: 0.25rem;">Architecture Blueprint</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 1rem;">Repository build &amp; solution design sprint</p>
+                        <div class="package-days">15 – 25 Consulting Days</div>
+                        <div class="package-price">£15,000 – £23,500</div>
+                        <span class="package-price-sub">Fixed milestone outcome engagement</span>
+                        <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: 1rem 0;">
+                        <ul class="package-features">
+                            <li><span>&#10003;</span> <strong>SPARX EA</strong> repository setup &amp; metamodel</li>
+                            <li><span>&#10003;</span> Target Operating Model (TOM) for 2 directorates</li>
+                            <li><span>&#10003;</span> Formal Architecture Decision Records (ADRs)</li>
+                            <li><span>&#10003;</span> 1x Production <strong>Power App</strong> or <strong>AI Agent</strong> prototype</li>
+                            <li><span>&#10003;</span> Systems convergence &amp; data migration roadmap</li>
+                            <li><span>&#10003;</span> Stakeholder workshops &amp; technical handover</li>
+                        </ul>
                     </div>
-                    <ul class="rate-card-list">
-                        <li>Governance and risk management</li>
-                        <li>Multi-supplier coordination</li>
-                        <li>Progress tracking and reporting to senior stakeholders</li>
-                        <li>Hands-on issue resolution and delivery assurance</li>
-                    </ul>
-                </div>
-                <div class="glass-panel rate-card border-top-teal">
-                    <h3>Project Management</h3>
-                    <p class="rate-card-subtitle">Delivery from discovery to go live</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£650–800</span> <span class="rate-card-unit">/ day</span>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="contact.html?package=silver" class="btn btn-secondary" style="width: 100%; text-align: center;">Book Silver Sprint</a>
                     </div>
-                    <ul class="rate-card-list">
-                        <li>Supplier and team coordination</li>
-                        <li>Maintaining delivery momentum</li>
-                        <li>Day-to-day oversight of delivery milestones</li>
-                        <li>Risk, action and dependency management</li>
-                    </ul>
                 </div>
 
-                 <!-- Card 3 -->
-                 <!-- Card 4: Transformation Strategy -->
-                 <div class="glass-panel rate-card border-top-gold">
-                    <h3>Transformation Strategy</h3>
-                    <p class="rate-card-subtitle">Business cases and delivery roadmaps</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£700–850</span> <span class="rate-card-unit">/ day</span>
+                <!-- GOLD PACKAGE -->
+                <div class="package-card scroll-reveal sr-delay-3" style="border-top: 4px solid var(--gold);">
+                    <div>
+                        <span class="package-badge badge-gold">Gold Package</span>
+                        <h3 style="font-size: 1.4rem; color: var(--navy-deep); margin-bottom: 0.25rem;">Transformation Partner</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 1rem;">Full architecture build &amp; automation delivery</p>
+                        <div class="package-days">35 – 55 Consulting Days</div>
+                        <div class="package-price">£34,000 – £49,500</div>
+                        <span class="package-price-sub">Comprehensive multi-workstream delivery</span>
+                        <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: 1rem 0;">
+                        <ul class="package-features">
+                            <li><span>&#10003;</span> Full council-wide <strong>SPARX EA</strong> repository build</li>
+                            <li><span>&#10003;</span> <strong>Solution Design Authority (SDA)</strong> establishment</li>
+                            <li><span>&#10003;</span> End-to-end <strong>Power Apps &amp; Automate</strong> deployment</li>
+                            <li><span>&#10003;</span> Production <strong>Council AI Agent</strong> deployment</li>
+                            <li><span>&#10003;</span> LGR legacy systems decommissioning plan</li>
+                            <li><span>&#10003;</span> Power BI S151 financial &amp; cabinet dashboards</li>
+                            <li><span>&#10003;</span> Full internal capability transfer &amp; training</li>
+                        </ul>
                     </div>
-                    <ul class="rate-card-list">
-                        <li>Target state and operating model design</li>
-                        <li>Executive-ready outputs</li>
-                        <li>Option appraisals and prioritisation frameworks</li>
-                        <li>Alignment with organisation goals and constraints</li>
-                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="contact.html?package=gold" class="btn btn-primary" style="width: 100%; text-align: center;">Commission Gold Delivery</a>
+                    </div>
                 </div>
 
-                 <!-- Card 4 -->
-                 <!-- Card 5: CRM & CX Delivery -->
-                 <div class="glass-panel rate-card border-top-navy">
-                    <h3>CRM and Customer Experience Delivery</h3>
-                    <p class="rate-card-subtitle">Customer journey design</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£700–850</span> <span class="rate-card-unit">/ day</span>
+                <!-- PLATINUM PACKAGE (PROBLEM OWNERSHIP) -->
+                <div class="package-card package-platinum-card scroll-reveal sr-delay-4">
+                    <div>
+                        <span class="package-badge badge-platinum">&#9733; Platinum Flagship</span>
+                        <h3 style="font-size: 1.45rem; color: var(--navy-deep); margin-bottom: 0.25rem;">Problem Ownership</h3>
+                        <p style="font-size: 0.88rem; color: var(--cyan); font-weight: 600; margin-bottom: 1rem;">We take full ownership of the problem</p>
+                        <div class="package-days" style="color: var(--navy-deep);">Dedicated Outcome Engagement</div>
+                        <div class="package-price" style="color: var(--cyan);">Outcome-Guaranteed</div>
+                        <span class="package-price-sub">Milestone retainer / Staged delivery from £65,000+</span>
+                        <hr style="border: none; border-top: 1px solid rgba(0,229,255,0.2); margin: 1rem 0;">
+                        <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5; margin-bottom: 1rem;">
+                            <strong>When failure is not an option:</strong> High-risk LGR Day-1 deadlines, critical audit actions, stalled multi-million programmes, or supplier disputes. We step in and take complete end-to-end accountability.
+                        </p>
+                        <ul class="package-features">
+                            <li><span>&#10003;</span> <strong>Full Accountability:</strong> We own the outcome, not just advice</li>
+                            <li><span>&#10003;</span> <strong>Embedded Practice Leadership:</strong> Lead EA &amp; Director</li>
+                            <li><span>&#10003;</span> <strong>Supplier &amp; Dispute Management:</strong> Enforcing vendor delivery</li>
+                            <li><span>&#10003;</span> <strong>Day-1 Statutory Continuity:</strong> Revenues, Benefits &amp; Social Care</li>
+                            <li><span>&#10003;</span> <strong>Direct Solution Design Authority Chairing:</strong> Absolute technical control</li>
+                            <li><span>&#10003;</span> <strong>Cashable MTFS Savings:</strong> Tied to agreed budget release</li>
+                        </ul>
                     </div>
-                    <ul class="rate-card-list">
-                        <li>CRM integrations and data flows</li>
-                        <li>Adoption planning and iteration</li>
-                        <li>Vendor and stakeholder coordination</li>
-                        <li>Discovery through to post-launch support</li>
-                    </ul>
-                </div>
-
-                 <!-- Card 5 (Premium) -->
-                 <!-- Card 6: Programme Recovery -->
-                 <div class="glass-panel rate-card-premium">
-                    <h3>Programme Recovery</h3>
-                    <p class="rate-card-subtitle text-red">Fast diagnosis of delivery issues</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value text-red">£800–950</span> <span class="rate-card-unit text-red">/ day</span>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="contact.html?package=platinum" class="btn btn-primary" style="width: 100%; text-align: center; box-shadow: 0 4px 20px rgba(0,229,255,0.4);">Retain Platinum Practice &rarr;</a>
                     </div>
-                    <ul class="rate-card-list text-red border-red-light">
-                        <li>Reset plan and priority alignment</li>
-                        <li>Short, high-impact interventions (typically 2–6 weeks)</li>
-                        <li>Stakeholder re-engagement and confidence rebuilding</li>
-                        <li>Implementation of stabilisation controls</li>
-                    </ul>
-                </div>
-
-                  <!-- Card 6 -->
-                  <!-- Card 7: Service Redesign -->
-                  <div class="glass-panel rate-card border-top-teal">
-                    <h3>Service Redesign and Operating Model</h3>
-                    <p class="rate-card-subtitle">Process and service mapping</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£650–800</span> <span class="rate-card-unit">/ day</span>
-                    </div>
-                    <ul class="rate-card-list">
-                        <li>Digital-first service redesign</li>
-                        <li>Transition planning and structured handover</li>
-                        <li>Elimination of manual workarounds</li>
-                        <li>Embedding measurable service improvements</li>
-                    </ul>
-                </div>
-
-                <!-- Card 7 -->
-                <!-- Card 8: Infrastructure & Integration -->
-                  <div class="glass-panel rate-card border-top-gold">
-                    <h3>Infrastructure and Integration Planning</h3>
-                    <p class="rate-card-subtitle">Strategic planning for scalable infrastructure</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£700–850</span> <span class="rate-card-unit">/ day</span>
-                    </div>
-                    <ul class="rate-card-list">
-                        <li>Integration scoping and technical alignment</li>
-                        <li>Developer enablement and support</li>
-                        <li>Future-proofing architecture choices</li>
-                        <li>Clear handover artefacts for build teams</li>
-                    </ul>
-                </div>
-
-                <!-- Card 9: LGR Enterprise Architecture -->
-                <div class="glass-panel rate-card border-top-navy">
-                    <h3>LGR Enterprise Architecture</h3>
-                    <p class="rate-card-subtitle">TOGAF & ArchiMate in SPARX EA</p>
-                    <div class="rate-card-price-container">
-                        <span class="rate-card-price-value">£800–1,000</span> <span class="rate-card-unit">/ day</span>
-                    </div>
-                    <ul class="rate-card-list">
-                        <li>Visual architecture modeling for decision makers</li>
-                        <li>Transformation roadmap tracking and dependency management</li>
-                        <li>Standardised architecture using TOGAF & ArchiMate</li>
-                        <li>Systems consolidation mapping for LGR</li>
-                    </ul>
-                </div>
-
-                <!-- Hybrid Working Discounts Card -->
-                <div class="glass-panel rate-card discount-card">
-                    <h3>Hybrid Working Discounts</h3>
-                    <p class="rate-card-subtitle">
-                        Remote-first and hybrid delivery models reduce overheads and enable more focused working. Where appropriate, reduced day rates are available.
-                    </p>
-                    <ul class="rate-card-list">
-                        <li>20–30% discounts for remote or hybrid engagements</li>
-                        <li>Reflects reduced travel time and operating costs</li>
-                        <li>Enables more flexible scheduling and faster onboarding</li>
-                        <li>Ideal for geographically distributed teams</li>
-                        <li>Applies to most service areas, subject to scope</li>
-                    </ul>
                 </div>
 
             </div>
-
-            <div class="rate-disclaimer">
-                <p><em>Rates are indicative. Right project, right people, right outcomes = flexible conversation.</em></p>
-            </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Detailed Comparison Table -->
+    <section class="section-padding bg-contrast">
+        <div class="container">
+            <div class="text-center scroll-reveal">
+                <span class="hero-subtitle">FEATURE MATRIX</span>
+                <h2 style="font-size: 2.2rem; color: var(--text-light); margin-top: 0.5rem;">Compare Package Deliverables</h2>
+                <p style="color: var(--text-muted); max-width: 700px; margin: 0.5rem auto 0;">
+                    Understand which level of consultancy engagement best matches your council's immediate statutory deadlines and budget authority.
+                </p>
+            </div>
+
+            <div class="comparison-table-wrapper scroll-reveal">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 32%;">Deliverable &amp; Capability</th>
+                            <th style="width: 17%;">Bronze (5–10 Days)</th>
+                            <th style="width: 17%;">Silver (15–25 Days)</th>
+                            <th style="width: 17%;">Gold (35–55 Days)</th>
+                            <th style="width: 17%; background: rgba(0,229,255,0.08); color: var(--cyan);">Platinum (Problem Ownership)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Consultancy Focus</strong></td>
+                            <td>Diagnostic Audit</td>
+                            <td>Blueprint &amp; Prototype</td>
+                            <td>Full Delivery Partner</td>
+                            <td style="background: rgba(0,229,255,0.03);"><strong>Total Problem Ownership</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>TOGAF &amp; ArchiMate Models</strong></td>
+                            <td>High-Level Baseline</td>
+                            <td>2 Priority Directorates</td>
+                            <td>Council-Wide Architecture</td>
+                            <td style="background: rgba(0,229,255,0.03);">Council-Wide + Cross-Agency</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SPARX Systems EA Repository</strong></td>
+                            <td>Assessment Only</td>
+                            <td>Metamodel &amp; Repository Setup</td>
+                            <td>Fully Populated Multi-User EA</td>
+                            <td style="background: rgba(0,229,255,0.03);">Fully Managed Enterprise Core</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Solution Design Authority (SDA)</strong></td>
+                            <td>Gap Analysis</td>
+                            <td>Charter &amp; Templates</td>
+                            <td>Co-Chaired SDA Operations</td>
+                            <td style="background: rgba(0,229,255,0.03);"><strong>Direct Practice Ownership &amp; Chair</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Microsoft 365 &amp; Power Platform</strong></td>
+                            <td>Readiness Review</td>
+                            <td>1x Production Prototype</td>
+                            <td>Multi-App Production Suite</td>
+                            <td style="background: rgba(0,229,255,0.03);">Enterprise Low-Code Ecosystem</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI Strategy &amp; Council Agents</strong></td>
+                            <td>Opportunity Scan</td>
+                            <td>AI Roadmap Draft</td>
+                            <td>Production AI Agent Pilot</td>
+                            <td style="background: rgba(0,229,255,0.03);">Full Production Agents &amp; Governance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LGR &amp; Systems Rationalisation</strong></td>
+                            <td>Risk &amp; Dependency Log</td>
+                            <td>Convergence Roadmap</td>
+                            <td>Decommissioning Execution</td>
+                            <td style="background: rgba(0,229,255,0.03);"><strong>Guaranteed Day-1 Statutory Readiness</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accountability Level</strong></td>
+                            <td>Advisory Briefing</td>
+                            <td>Milestone Deliverable</td>
+                            <td>Delivery Partner</td>
+                            <td style="background: rgba(0,229,255,0.03); color: var(--cyan); font-weight: bold;">Full Programme Accountability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Executive Governance</strong></td>
+                            <td>CDIO / Head of Service</td>
+                            <td>Project Board</td>
+                            <td>Programme Board &amp; S151</td>
+                            <td style="background: rgba(0,229,255,0.03);"><strong>Chief Exec &amp; Cabinet Reporting</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    * All packages are compliant with IR35 outcome-based rules and can be contracted directly or via G-Cloud 14 and Crown Commercial Service frameworks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-light text-center">
+        <div class="container animate-fade-up">
+            <span class="hero-subtitle">TAILORED COMMISSIONING</span>
+            <h2 style="font-size: 2.3rem; margin: 0.5rem 0 1rem; color: var(--navy-deep);">Discuss Your Council's Requirements</h2>
+            <p style="color: var(--text-body); max-width: 700px; margin: 0 auto 2rem; font-size: 1.1rem; line-height: 1.6;">
+                Every local authority has a unique political, financial, and architectural landscape. Let's schedule a confidential discovery call with our practice directors.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary">Schedule Discovery Call &rarr;</a>
+                <a href="services.html" class="btn btn-secondary">Explore Practice Areas</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <!-- Brand Column -->
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift >></span></a>
-                    <p>Contract interim leadership and delivery for complex public service digital transformation. I unblock teams and get things over the line.</p>
+                    <a href="index.html" class="footer-logo">Civic <span class="text-teal">Shift &rsaquo;&rsaquo;</span></a>
+                    <p>Independent Local Government Digital Consultancy &amp; Enterprise Architecture Practice. Specialising in TOGAF / SPARX EA, LGR convergence, AI roadmaps, and Microsoft 365 Power Platform acceleration.</p>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Connect on LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Connect on LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                             LinkedIn
-                        </a>
-                        <a href="https://www.instagram.com/YOUR-INSTAGRAM-HANDLE" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Follow on Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                            Instagram
                         </a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div class="footer-links">
-                    <h4>Navigation</h4>
+                    <h4>Practice Areas</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="ai-agent.html">AI Agents</a></li>
-                        <li><a href="success_stories.html">Success Stories</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="estimator.html">Rate Card</a></li>
+                        <li><a href="services.html#ea">Enterprise Architecture (SPARX/TOGAF)</a></li>
+                        <li><a href="services.html#m365">M365 &amp; Power Platform Acceleration</a></li>
+                        <li><a href="services.html#lgr">LGR &amp; Systems Convergence</a></li>
+                        <li><a href="ai-agent.html">AI Roadmaps &amp; Council Agents</a></li>
+                        <li><a href="estimator.html">Engagement Packages (Bronze–Platinum)</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact/Action -->
                 <div class="footer-contact">
-                    <h4>Get in Touch</h4>
-                    <p class="footer-cta-text">Need to stabilise a programme fast?</p>
-                    <a href="contact.html" class="btn btn-primary">Let's Talk &rarr;</a>
+                    <h4>Commissioning</h4>
+                    <p class="footer-cta-text">Book an executive architecture review or LGR discovery session.</p>
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation &rarr;</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 CivicShift. All rights reserved.</p>
+                <p>&copy; 2026 Civic Shift Consulting Ltd. All rights reserved. Registered public sector digital consultancy practice.</p>
             </div>
         </div>
     </footer>
 
 </body>
 </html>
-
 
