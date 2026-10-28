@@ -313,17 +313,19 @@ nav.glass-panel {
   }
 }
 
-/* On dark backgrounds, hero headers, and dark sections */
+/* On dark backgrounds, hero headers, and dark sections - SOLID CRISP WHITE FOR MAXIMUM CONTRAST */
 .home-hero-header .btn-secondary,
 .bg-dark .btn-secondary,
 .bg-contrast .btn-secondary,
 .about-hero .btn-secondary,
 header .btn-secondary,
 [data-theme="dark"] .btn-secondary {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1.5px solid rgba(0, 229, 255, 0.7) !important;
-  color: #FFFFFF !important;
-  backdrop-filter: blur(8px);
+  background: #FFFFFF !important;
+  border: 2px solid #FFFFFF !important;
+  color: var(--navy-deep) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: none !important;
 }
 .home-hero-header .btn-secondary:hover,
 .bg-dark .btn-secondary:hover,
@@ -331,11 +333,11 @@ header .btn-secondary,
 .about-hero .btn-secondary:hover,
 header .btn-secondary:hover,
 [data-theme="dark"] .btn-secondary:hover {
-  background: rgba(0, 229, 255, 0.18) !important;
+  background: var(--cyan) !important;
   border-color: var(--cyan) !important;
-  color: var(--cyan) !important;
+  color: var(--navy-deep) !important;
   transform: translateY(-2px);
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35) !important;
+  box-shadow: 0 6px 25px rgba(0, 229, 255, 0.45) !important;
 }
 
 .btn-small { padding: 0.5rem 1rem; font-size: 0.875rem; }
@@ -545,8 +547,8 @@ footer a:hover { color: var(--cyan); }
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -561,12 +563,25 @@ footer a:hover { color: var(--cyan); }
   display: block;
 }
 .hero-title {
-  font-size: clamp(2.8rem, 5vw, 4.25rem);
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
   font-weight: 800;
   color: var(--text-light);
   margin-bottom: 1.75rem;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.hero-title-line1 {
+  display: block;
+}
+.hero-title-line2 {
+  display: block;
+  color: var(--cyan);
+}
+@media (min-width: 640px) {
+  .hero-title-line1,
+  .hero-title-line2 {
+    white-space: nowrap;
+  }
 }
 .hero-description {
   font-size: 1.15rem;
@@ -1590,15 +1605,21 @@ tr:hover td { background: rgba(0,229,255,0.03); }
     color: var(--text-primary);
 }
 
-/* ── Navigation CTA Button (Commission Us) ───────────────── */
+/* Navigation CTA Button (Commission Us) - ULTRA HIGH CONTRAST NEON CYAN */
 .btn-nav,
 .nav-links a.btn-nav,
 .site-nav .btn-nav,
-.site-nav .nav-actions .btn-nav {
+.site-nav .nav-actions .btn-nav,
+.site-nav.nav-scrolled .btn-nav,
+.site-nav.nav-scrolled .nav-links a.btn-nav,
+.site-nav.nav-scrolled .nav-actions .btn-nav,
+[data-theme="dark"] .btn-nav,
+[data-theme="dark"] .nav-links a.btn-nav,
+[data-theme="dark"] .nav-actions .btn-nav {
   padding: 0.65rem 1.6rem !important;
-  background: var(--navy-deep) !important;
-  color: #FFFFFF !important;
-  border: 1.5px solid var(--navy-deep) !important;
+  background: #00E5FF !important;
+  color: #0A1F3F !important;
+  border: 2px solid #00E5FF !important;
   font-weight: 700 !important;
   font-size: 0.85rem !important;
   text-transform: uppercase !important;
@@ -1609,19 +1630,27 @@ tr:hover td { background: rgba(0,229,255,0.03); }
   align-items: center !important;
   justify-content: center !important;
   text-decoration: none !important;
-  box-shadow: 0 2px 10px rgba(10, 31, 63, 0.15) !important;
+  box-shadow: 0 2px 12px rgba(0, 229, 255, 0.4) !important;
   position: relative !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .btn-nav:hover,
 .nav-links a.btn-nav:hover,
 .site-nav .btn-nav:hover,
-.site-nav .nav-actions .btn-nav:hover {
-  background: var(--cyan) !important;
-  color: var(--navy-deep) !important;
-  border-color: var(--cyan) !important;
+.site-nav .nav-actions .btn-nav:hover,
+.site-nav.nav-scrolled .btn-nav:hover,
+.site-nav.nav-scrolled .nav-links a.btn-nav:hover,
+.site-nav.nav-scrolled .nav-actions .btn-nav:hover,
+[data-theme="dark"] .btn-nav:hover,
+[data-theme="dark"] .nav-links a.btn-nav:hover,
+[data-theme="dark"] .nav-actions .btn-nav:hover {
+  background: #FFFFFF !important;
+  color: #0A1F3F !important;
+  border-color: #FFFFFF !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(0, 229, 255, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5) !important;
 }
 
 /* Never show the underline pseudo-element on the CTA button */
@@ -1632,48 +1661,14 @@ tr:hover td { background: rgba(0,229,255,0.03); }
   content: none !important;
 }
 
-/* When site is scrolled down (dark nav bar) */
-.site-nav.nav-scrolled .btn-nav,
-.site-nav.nav-scrolled .nav-links a.btn-nav,
-.site-nav.nav-scrolled .nav-actions .btn-nav {
-  background: var(--cyan) !important;
-  color: var(--navy-deep) !important;
-  border-color: var(--cyan) !important;
-}
-
-.site-nav.nav-scrolled .btn-nav:hover,
-.site-nav.nav-scrolled .nav-links a.btn-nav:hover,
-.site-nav.nav-scrolled .nav-actions .btn-nav:hover {
-  background: transparent !important;
-  color: var(--cyan) !important;
-  border-color: var(--cyan) !important;
-}
-
-/* Dark mode theme */
-[data-theme="dark"] .btn-nav,
-[data-theme="dark"] .nav-links a.btn-nav,
-[data-theme="dark"] .nav-actions .btn-nav {
-  background: var(--cyan) !important;
-  color: var(--navy-deep) !important;
-  border-color: var(--cyan) !important;
-}
-
-[data-theme="dark"] .btn-nav:hover,
-[data-theme="dark"] .nav-links a.btn-nav:hover,
-[data-theme="dark"] .nav-actions .btn-nav:hover {
-  background: transparent !important;
-  color: var(--cyan) !important;
-  border-color: var(--cyan) !important;
-}
-
 /* Inside the mobile nav overlay */
 @media (max-width: 768px) {
   .nav-links.active .btn-nav,
   .nav-links.active a.btn-nav,
   .nav-links.active .nav-actions .btn-nav {
-    background: var(--cyan) !important;
-    color: var(--navy-deep) !important;
-    border-color: var(--cyan) !important;
+    background: #00E5FF !important;
+    color: #0A1F3F !important;
+    border: 2px solid #00E5FF !important;
     width: 100% !important;
     max-width: 280px !important;
     font-size: 0.95rem !important;
