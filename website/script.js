@@ -45,50 +45,7 @@ function initWebsite() {
     }
 
     // â”€â”€ Estimator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    initEstimator();
-}
 
-function initEstimator() {
-    function calculateEstimate() {
-        const serviceRadio = document.querySelector('input[name="service"]:checked');
-        if (!serviceRadio) return;
-        const service  = serviceRadio.value;
-        const duration = parseInt(document.getElementById('duration')?.value) || 6;
-
-        const rates = {
-            interim:          { min: 850, max: 1000 },
-            prog_mgmt:        { min: 750, max: 900 },
-            recovery:         { min: 800, max: 950 },
-            crm:              { min: 700, max: 850 },
-            service_redesign: { min: 650, max: 800 },
-            infrastructure:   { min: 700, max: 850 },
-            integration:      { min: 700, max: 850 }
-        };
-        const rate = rates[service] || rates.interim;
-        const daysPerMonth = 20;
-        const minTotal = rate.min * daysPerMonth * duration;
-        const maxTotal = rate.max * daysPerMonth * duration;
-
-        const el = (id) => document.getElementById(id);
-        if (el('minPrice')) el('minPrice').textContent = (minTotal / 1000).toFixed(0);
-        if (el('maxPrice')) el('maxPrice').textContent = (maxTotal / 1000).toFixed(0);
-
-        const resultArea = el('resultArea');
-        if (resultArea) {
-            resultArea.style.display = 'block';
-            setTimeout(() => { resultArea.style.opacity = '1'; }, 50);
-        }
-    }
-
-    const durationInput = document.getElementById('duration');
-    if (durationInput) durationInput.addEventListener('input', calculateEstimate);
-
-    document.querySelectorAll('input[name="service"]').forEach(r =>
-        r.addEventListener('change', calculateEstimate)
-    );
-
-    const calculateBtn = document.getElementById('calculateBtn');
-    if (calculateBtn) calculateBtn.addEventListener('click', (e) => { e.preventDefault(); calculateEstimate(); });
 }
 
 // â”€â”€ DOM Ready â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
