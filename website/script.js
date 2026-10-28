@@ -102,15 +102,79 @@ if (document.readyState === 'loading') {
 document.addEventListener('DOMContentLoaded', () => {
     const toggle   = document.querySelector('.mobile-nav-toggle');
     const navLinks = document.querySelector('.nav-links');
+
+    function closeMobileNav() {
+        if (toggle && navLinks && navLinks.classList.contains('active')) {
+            toggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('active');
+            toggle.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        }
+    }
+
     if (toggle && navLinks) {
-        toggle.addEventListener('click', () => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
             toggle.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
             toggle.classList.toggle('active');
             document.body.classList.toggle('nav-open', navLinks.classList.contains('active'));
         });
+
+        // Close when clicking any nav link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileNav();
+            });
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileNav();
+                toggle.focus();
+            }
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                closeMobileNav();
+            }
+        });
     }
+
+    // Pre-fill Contact Form from Query Params
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const serviceParam = params.get('service');
+        const packageParam = params.get('package');
+
+        if (serviceParam) {
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value.toLowerCase() === serviceParam.toLowerCase()) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (packageParam) {
+            const packageSelect = document.getElementById('package');
+            if (packageSelect) {
+                for (let i = 0; i < packageSelect.options.length; i++) {
+                    if (packageSelect.options[i].value.toLowerCase() === packageParam.toLowerCase()) {
+                        packageSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+    } catch (err) {}
 
     // â”€â”€ FAQ Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     document.querySelectorAll('.faq-question').forEach(btn => {

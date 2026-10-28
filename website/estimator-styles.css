@@ -1,4 +1,4 @@
-/* Modern Netlify-Style Estimator Enhancements */
+﻿/* Modern Netlify-Style Estimator Enhancements */
 
 /* Estimator Section Layout */
 .estimator-section {
@@ -470,89 +470,129 @@
     font-weight: 600;
     font-size: 1.1rem;
 }
-/ *   E n h a n c e d   s t y l i n g   f o r   T r a v e l   &   E x p e n s e s   a n d   H y b r i d   W o r k i n g   D i s c o u n t   c a r d s   * /  
-  
- . e x p e n s e - c a r d ,   . d i s c o u n t - c a r d   {  
-         p a d d i n g :   2 . 5 r e m   ! i m p o r t a n t ;  
-         b o r d e r - r a d i u s :   1 2 p x   ! i m p o r t a n t ;  
-         t r a n s i t i o n :   a l l   0 . 3 s   e a s e   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d : h o v e r ,   . d i s c o u n t - c a r d : h o v e r   {  
-         t r a n s f o r m :   t r a n s l a t e Y ( - 8 p x )   ! i m p o r t a n t ;  
-         b o x - s h a d o w :   0   2 0 p x   4 0 p x   r g b a ( 0 ,   0 ,   0 ,   0 . 1 2 )   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   h 3 ,   . d i s c o u n t - c a r d   h 3   {  
-         f o n t - s i z e :   1 . 5 r e m   ! i m p o r t a n t ;  
-         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
-         m a r g i n - b o t t o m :   1 . 5 r e m   ! i m p o r t a n t ;  
-         c o l o r :   v a r ( - - p r i m a r y - d a r k )   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   . e x p e n s e - d e s c ,   . d i s c o u n t - c a r d   . e x p e n s e - d e s c   {  
-         f o n t - s i z e :   1 r e m   ! i m p o r t a n t ;  
-         l i n e - h e i g h t :   1 . 7 5   ! i m p o r t a n t ;  
-         c o l o r :   v a r ( - - t e x t - b o d y )   ! i m p o r t a n t ;  
-         f o n t - w e i g h t :   5 0 0   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   . e x p e n s e - d e s c   s t r o n g ,   . d i s c o u n t - c a r d   . e x p e n s e - d e s c   s t r o n g   {  
-         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
-         c o l o r :   v a r ( - - p r i m a r y - d a r k )   ! i m p o r t a n t ;  
- }  
-  
- . d i s c o u n t - c a r d   . d i s c o u n t - h i g h l i g h t   {  
-         f o n t - s i z e :   1 . 2 5 r e m   ! i m p o r t a n t ;  
-         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
-         c o l o r :   v a r ( - - a c c e n t - g r e e n )   ! i m p o r t a n t ;  
-         m a r g i n - t o p :   1 . 5 r e m   ! i m p o r t a n t ;  
-         p a d d i n g - t o p :   1 . 5 r e m   ! i m p o r t a n t ;  
-         b o r d e r - t o p :   2 p x   s o l i d   r g b a ( 1 6 ,   1 8 5 ,   1 2 9 ,   0 . 2 )   ! i m p o r t a n t ;  
- }  
- / *   A p p l y   r a t e   c a r d   l i s t   s t y l i n g   t o   e x p e n s e   a n d   d i s c o u n t   c a r d s   * /  
- . e x p e n s e - c a r d   . r a t e - c a r d - s u b t i t l e ,  
- . d i s c o u n t - c a r d   . r a t e - c a r d - s u b t i t l e   {  
-         c o l o r :   v a r ( - - t e x t - b o d y )   ! i m p o r t a n t ;  
-         f o n t - s i z e :   1 . 0 5 r e m   ! i m p o r t a n t ;  
-         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
-         m a r g i n - b o t t o m :   1 . 5 r e m   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   . r a t e - c a r d - l i s t ,  
- . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   {  
-         l i s t - s t y l e :   n o n e   ! i m p o r t a n t ;  
-         p a d d i n g - l e f t :   0   ! i m p o r t a n t ;  
-         m a r g i n :   0   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   . r a t e - c a r d - l i s t   l i ,  
- . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i   {  
-         m a r g i n - b o t t o m :   1 r e m   ! i m p o r t a n t ;  
-         p a d d i n g - l e f t :   2 r e m   ! i m p o r t a n t ;  
-         p o s i t i o n :   r e l a t i v e   ! i m p o r t a n t ;  
-         l i n e - h e i g h t :   1 . 6   ! i m p o r t a n t ;  
- }  
-  
- . e x p e n s e - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e ,  
- . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e   {  
-         c o n t e n t :   " � S "   ! i m p o r t a n t ;  
-         p o s i t i o n :   a b s o l u t e   ! i m p o r t a n t ;  
-         l e f t :   0   ! i m p o r t a n t ;  
-         t o p :   0   ! i m p o r t a n t ;  
-         c o l o r :   v a r ( - - a c c e n t - t e a l )   ! i m p o r t a n t ;  
-         f o n t - w e i g h t :   7 0 0   ! i m p o r t a n t ;  
-         f o n t - s i z e :   1 . 2 5 r e m   ! i m p o r t a n t ;  
- }  
-  
- / *   G r e e n   c h e c k m a r k s   f o r   d i s c o u n t   c a r d   * /  
- . d i s c o u n t - c a r d   . r a t e - c a r d - l i s t   l i : : b e f o r e   {  
-         c o l o r :   v a r ( - - a c c e n t - g r e e n )   ! i m p o r t a n t ;  
- }  
- 
+/* Enhanced styling for Travel & Expenses and Hybrid Working Discount cards */
+
+.expense-card, .discount-card {
+    padding: 2.5rem !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.expense-card:hover, .discount-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+.expense-card h3, .discount-card h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--primary-dark) !important;
+}
+
+.expense-card .expense-desc, .discount-card .expense-desc {
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    color: var(--text-body) !important;
+    font-weight: 500 !important;
+}
+
+.expense-card .expense-desc strong, .discount-card .expense-desc strong {
+    font-weight: 700 !important;
+    color: var(--primary-dark) !important;
+}
+
+.discount-card .discount-highlight {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: var(--accent-green) !important;
+    margin-top: 1.5rem !important;
+    padding-top: 1.5rem !important;
+    border-top: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
+/* Apply rate card list styling to expense and discount cards */
+.expense-card .rate-card-subtitle,
+.discount-card .rate-card-subtitle {
+    color: var(--text-body) !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.expense-card .rate-card-list,
+.discount-card .rate-card-list {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.expense-card .rate-card-list li,
+.discount-card .rate-card-list li {
+    margin-bottom: 1rem !important;
+    padding-left: 2rem !important;
+    position: relative !important;
+    line-height: 1.6 !important;
+}
+
+.expense-card .rate-card-list li::before,
+.discount-card .rate-card-list li::before {
+    content: "�S " !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--accent-teal) !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+}
+
+/* Green checkmarks for discount card */
+.discount-card .rate-card-list li::before {
+    color: var(--accent-green) !important;
+}
+
 /* Light green background for discount card */
 .discount-card {
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.05) 100%) !important;
     border-top: 3px solid var(--accent-green) !important;
 }
 
+/* ── Mobile & Responsive Refinements ─────────────────────── */
+@media (max-width: 768px) {
+    .estimator-section {
+        padding: 3.5rem 1.25rem;
+    }
+    .estimator-card {
+        padding: 2rem 1.5rem;
+    }
+    .result-area {
+        padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .estimator-section {
+        padding: 2.5rem 1rem;
+    }
+    .estimator-card {
+        padding: 1.5rem 1rem;
+        border-radius: 8px;
+    }
+    .estimator-intro h2 {
+        font-size: 1.75rem;
+    }
+    .service-option {
+        padding: 1rem 0.9rem;
+    }
+    .service-option label {
+        font-size: 0.9rem;
+    }
+    .result-area {
+        padding: 1.5rem 1rem;
+    }
+    .result-value {
+        font-size: 2.25rem;
+    }
+    .rate-card {
+        padding: 1.5rem 1.2rem;
+    }
+}
