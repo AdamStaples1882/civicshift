@@ -55,6 +55,24 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://civicshift.netlify.app/council-data-interoperability-single-view.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://civicshift.netlify.app/council-cyber-resilience-caf.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://civicshift.netlify.app/council-erp-procurement-modernisation.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://civicshift.netlify.app/ai-agent.html</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
